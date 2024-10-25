@@ -1,8 +1,10 @@
+import Gallery from "./components/Gallery/Gallery.tsx"
+
 function App() {
 
   return (
     <>
-
+      <Gallery />
     </>
   )
 }
