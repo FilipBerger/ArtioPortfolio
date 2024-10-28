@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react"
-// import Header when ready
+import Header from "../Header/Header.tsx"
+import { GalleryProps } from "../../interfaces.tsx"
 // import Focus when ready
 // import Miniature when ready
 
-const Gallery = () => {
+const Gallery: React.FC<GalleryProps> = ({ userData }) => {
 
     return (
         <div className="gallery-container">
-            <div className="header-container"></div>
-            <div className="focus-container"></div>
-            <div className="miniatures-container"></div>
+                <Header userData={userData}/>
         </div>
     )
 }
