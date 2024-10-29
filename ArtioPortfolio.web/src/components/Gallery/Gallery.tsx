@@ -4,14 +4,13 @@ import { GalleryProps } from "../../interfaces.tsx"
 import Miniature from "../Miniature/Miniature.tsx"
 import "./Gallery.css"
 // import Focus when ready
-// import Miniature when ready
 
 const Gallery: React.FC<GalleryProps> = ({ userData, projectData }) => {
     const filteredData = projectData
     .flatMap(project => 
         project.images
             .filter(image => image.imageId === 1)
-            .map(image => ({ base64Image: image.base64Image, description: project.description }))
+            .map(image => ({ base64Image: image.base64Image, title: image.title }))
     )
 
     return (
@@ -21,7 +20,7 @@ const Gallery: React.FC<GalleryProps> = ({ userData, projectData }) => {
                     {filteredData.map(data => (
                         <Miniature 
                             src={data.base64Image} 
-                            alt={data.description}
+                            alt={`Image title: ${data.title}`}
                         />
                     ))}
                 </div>
