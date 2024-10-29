@@ -1,0 +1,6 @@
+.miniatures-container {
+  margin-top: 50px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}/*# sourceMappingURL=Gallery.css.map */
