@@ -1,10 +1,15 @@
 import { MiniatureProps } from "../../interfaces.tsx"
 import "./Miniature.css"
 
-const Miniature: React.FC<MiniatureProps> = ({ src, alt }) => {
+const Miniature: React.FC<MiniatureProps> = ({ src, alt, index, focusIndex, setFocusIndex}) => {
+    const className = index === focusIndex ? "miniature-container focused" : "miniature-container"
+    
+    const handleClick = () => {
+        setFocusIndex(index)
+    }
     return (
-        <div className="miniature-container">
-            <img src={src} alt={alt} />
+        <div className={className}>
+            <img className="miniature" src={src} alt={alt} onClick={handleClick}/>
         </div>
     )
 }

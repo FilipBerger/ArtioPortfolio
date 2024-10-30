@@ -29,4 +29,7 @@ export interface Image {
 export interface MiniatureProps {
     src: string
     alt: string
+    index: number
+    focusIndex: number
+    setFocusIndex: Function
 }
