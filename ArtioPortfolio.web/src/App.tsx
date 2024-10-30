@@ -2,6 +2,7 @@ import Gallery from "./components/Gallery/Gallery.tsx"
 import userData from "./mocks/mockUserData.json"
 import { User, Project } from "./interfaces.tsx"
 import projectData from "./mocks/mockProjects.json"
+import "./App.css"
 
 function App() {
   // Convert to state variables and utlize useEffect to get and set these at a later stage

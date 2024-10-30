@@ -1,6 +1,24 @@
+.gallery-container {
+    padding-top: 10vh;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
 .miniatures-container {
-    margin-top: 50px;
     display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, 22vh);
+    grid-auto-columns: 22vh;
+    gap: 1vh;
+    height: 45vh;
+    overflow-x: auto;
+    overflow-y: hidden;
 }

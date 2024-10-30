@@ -17,8 +17,9 @@ const Gallery: React.FC<GalleryProps> = ({ userData, projectData }) => {
         <div className="gallery-container">
                 <Header userData={userData}/>
                 <div className="miniatures-container">
-                    {filteredData.map(data => (
+                    {filteredData.map((data, index )=> (
                         <Miniature 
+                            key={index}
                             src={data.base64Image} 
                             alt={`Image title: ${data.title}`}
                         />

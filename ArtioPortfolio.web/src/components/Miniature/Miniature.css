@@ -7,6 +7,8 @@
 .miniature-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top;
-}
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}/*# sourceMappingURL=Miniature.css.map */
