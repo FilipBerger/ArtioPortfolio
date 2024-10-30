@@ -2,24 +2,23 @@ import { useState } from "react"
 import "./Header.css"
 import { HeaderProps } from "../../interfaces"
 
-const Header: React.FC<HeaderProps> = ({ userData }) => {
+const Header: React.FC<HeaderProps> = ({ userData, filterString, setFilterString }) => {
 
     const [isExpanded, setIsExpanded] = useState(false)
-    const [searchString, setSearchString] = useState("")
 
     const handleFocus = () => {
     setIsExpanded(true)
     }
 
     const handleBlur = () => {
-        if (searchString === "") 
+        if (filterString === "") 
         {
             setIsExpanded(false)
         }
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchString(e.target.value);
+        setFilterString(e.target.value);
     }
 
     return (

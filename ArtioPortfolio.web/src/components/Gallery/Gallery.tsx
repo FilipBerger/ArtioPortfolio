@@ -1,29 +1,48 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Header from "../Header/Header.tsx"
-import { GalleryProps } from "../../interfaces.tsx"
+import { GalleryProps, FilteredDataType } from "../../interfaces.tsx"
 import Miniature from "../Miniature/Miniature.tsx"
 import "./Gallery.css"
 import Focus from "../Focus/Focus.tsx"
 
 const Gallery: React.FC<GalleryProps> = ({ userData, projectData }) => {
     const [focusIndex, setFocusIndex] = useState(0)
+    const [filterString, setFilterString] = useState("")
+    const [filteredResults, setFilteredResults] = useState<FilteredDataType[]>([])
 
-    const filteredData = projectData
+    const processedProjectData = projectData
     .flatMap(project => 
         project.images
             .filter(image => image.imageId === 1)
             .map(image => ({ base64Image: image.base64Image, title: image.title }))
     )
 
+    useEffect(() => {
+        if (filterString === "") {
+            setFilteredResults(processedProjectData)
+        } else {
+            const filtered = processedProjectData.filter(data =>
+                data.title.toLowerCase().includes(filterString.toLowerCase())
+            )
+            setFilteredResults(filtered)
+        }
+    }, [filterString])
+
     return (
         <div className="gallery-container">
-                <Header userData={userData}/>
-                <Focus 
-                    src={filteredData[focusIndex].base64Image}
-                    alt={filteredData[focusIndex].title}
+                <Header 
+                    userData={userData}
+                    filterString={filterString}
+                    setFilterString={setFilterString}
                 />
+                {filteredResults.length > 0 && (
+                    <Focus 
+                    src={filteredResults[focusIndex].base64Image}
+                    alt={filteredResults[focusIndex].title}
+                />
+                )}
                 <div className="miniatures-container">
-                    {filteredData.map((data, index )=> (
+                    {filteredResults.map((data, index )=> (
                         <Miniature 
                             key={index}
                             index={index}

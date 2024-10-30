@@ -6,6 +6,8 @@ export interface User {
 
 export interface HeaderProps {
     userData: User
+    filterString: string
+    setFilterString: Function
 }
 
 export interface GalleryProps {
@@ -37,4 +39,9 @@ export interface MiniatureProps {
 export interface FocusProps {
     src: string
     alt: string
+}
+
+export interface FilteredDataType {
+    base64Image: string
+    title: string
 }
