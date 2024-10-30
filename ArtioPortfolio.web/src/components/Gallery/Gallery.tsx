@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Header from "../Header/Header.tsx"
 import { GalleryProps } from "../../interfaces.tsx"
 import Miniature from "../Miniature/Miniature.tsx"
