@@ -3,7 +3,7 @@ import Header from "../Header/Header.tsx"
 import { GalleryProps } from "../../interfaces.tsx"
 import Miniature from "../Miniature/Miniature.tsx"
 import "./Gallery.css"
-// import Focus when ready
+import Focus from "../Focus/Focus.tsx"
 
 const Gallery: React.FC<GalleryProps> = ({ userData, projectData }) => {
     const [focusIndex, setFocusIndex] = useState(0)
@@ -18,7 +18,10 @@ const Gallery: React.FC<GalleryProps> = ({ userData, projectData }) => {
     return (
         <div className="gallery-container">
                 <Header userData={userData}/>
-                <img className="focus"/>
+                <Focus 
+                    src={filteredData[focusIndex].base64Image}
+                    alt={filteredData[focusIndex].title}
+                />
                 <div className="miniatures-container">
                     {filteredData.map((data, index )=> (
                         <Miniature 

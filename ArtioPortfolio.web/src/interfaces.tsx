@@ -33,3 +33,8 @@ export interface MiniatureProps {
     focusIndex: number
     setFocusIndex: Function
 }
+
+export interface FocusProps {
+    src: string
+    alt: string
+}
