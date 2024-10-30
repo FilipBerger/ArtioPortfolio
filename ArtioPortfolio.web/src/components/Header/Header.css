@@ -34,9 +34,12 @@ body {
   right: 50px;
   height: 36px;
   margin-left: 125px;
-  width: 36px;
+  width: 30px;
   border-radius: 18px;
   transition: width 0.3s ease;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 18px;
+  padding-left: 10px;
 }
 
 .search-bar.expanded {
