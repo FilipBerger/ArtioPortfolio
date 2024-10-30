@@ -40,3 +40,8 @@ export interface FocusProps {
     src: string
     alt: string
 }
+
+export interface FilteredDataType {
+    base64Image: string
+    title: string
+}
