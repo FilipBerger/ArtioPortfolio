@@ -6,6 +6,8 @@ export interface User {
 
 export interface HeaderProps {
     userData: User
+    filterString: string
+    setFilterString: Function
 }
 
 export interface GalleryProps {

@@ -7,6 +7,7 @@ import Focus from "../Focus/Focus.tsx"
 
 const Gallery: React.FC<GalleryProps> = ({ userData, projectData }) => {
     const [focusIndex, setFocusIndex] = useState(0)
+    const [filterString, setFilterString] = useState("");
 
     const filteredData = projectData
     .flatMap(project => 
@@ -17,7 +18,11 @@ const Gallery: React.FC<GalleryProps> = ({ userData, projectData }) => {
 
     return (
         <div className="gallery-container">
-                <Header userData={userData}/>
+                <Header 
+                    userData={userData}
+                    filterString={filterString}
+                    setFilterString={setFilterString}
+                />
                 <Focus 
                     src={filteredData[focusIndex].base64Image}
                     alt={filteredData[focusIndex].title}
