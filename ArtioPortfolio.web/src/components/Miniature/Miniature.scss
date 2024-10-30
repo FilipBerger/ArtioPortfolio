@@ -1,0 +1,15 @@
+.miniature-container {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+.miniature {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.focused {
+    border: 2px solid red;
+}

@@ -1,0 +1,27 @@
+.gallery-container {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 92vh;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.miniatures-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 19vh);
+  grid-auto-columns: 19vh;
+  gap: 1vh;
+  height: 45vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.focus {
+  height: 45vh;
+}/*# sourceMappingURL=Gallery.css.map */
