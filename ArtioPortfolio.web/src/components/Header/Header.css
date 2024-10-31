@@ -1,69 +1,71 @@
 body {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 18px;
+  font-size: 2.5vh;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 10vh;
+  height: 8vh;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  padding: 1vh;
+  box-sizing: border-box;
 }
 
 .logo {
   position: fixed;
-  top: 5px;
-  left: 5px;
-  width: 40px;
-  height: 40px;
+  top: 1vh;
+  left: 1vh;
+  width: 6vh;
+  height: 6vh;
 }
 
 .artist-name {
   position: fixed;
-  top: 0px;
-  left: 60px;
+  top: 0;
+  left: 9vh;
 }
 
 .search-bar {
   position: fixed;
-  top: 5px;
-  right: 50px;
-  height: 36px;
-  margin-left: 125px;
-  width: 30px;
-  border-radius: 18px;
+  top: 1vh;
+  right: 8vh;
+  height: 5.5vh;
+  margin-left: 19vh;
+  width: 4.5vh;
+  border-radius: 2vh;
   transition: width 0.3s ease;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 18px;
-  padding-left: 10px;
+  font-size: 2.5vh;
+  padding-left: 1vh;
 }
 
 .search-bar.expanded {
-  width: 260px;
+  width: 38vh;
 }
 
 .search-icon {
   position: fixed;
-  width: 25px;
-  height: 25px;
-  top: 12px;
-  right: 59px;
+  width: 3.75vh;
+  height: 3.75vh;
+  top: 2vh;
+  right: 9vh;
   pointer-events: none;
 }
 
 .hamburger-menu {
-  width: 40px;
-  height: 40px;
+  width: 6vh;
+  height: 6vh;
   position: fixed;
-  top: 5px;
-  right: 5px;
+  top: 1vh;
+  right: 1vh;
 }
 
 .menu-icon {
-  width: 25px;
-  height: 25px;
+  width: 3.75vh;
+  height: 3.75vh;
 }/*# sourceMappingURL=Header.css.map */
