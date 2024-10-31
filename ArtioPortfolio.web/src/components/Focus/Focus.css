@@ -2,7 +2,6 @@
   aspect-ratio: 1/1;
   overflow: hidden;
   margin-bottom: 1vh;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,8 +10,4 @@
 .focus {
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
 }/*# sourceMappingURL=Focus.css.map */
