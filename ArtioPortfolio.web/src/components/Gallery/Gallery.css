@@ -18,8 +18,17 @@
   grid-auto-columns: 19vh;
   gap: 1vh;
   height: 45vh;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
+}
+
+.miniatures-container::-webkit-scrollbar-thumb {
+  background-color: #919191;
+  border-radius: 10px;
+}
+
+.miniatures-container::-webkit-scrollbar {
+  height: 1vh;
 }
 
 .focus {
