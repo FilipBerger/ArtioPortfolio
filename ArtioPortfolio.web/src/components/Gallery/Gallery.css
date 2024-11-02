@@ -1,32 +1,46 @@
-.gallery-container {
-  box-sizing: border-box;
-  display: flex;
-  flex: 1;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: 92vh;
-  flex-direction: column;
-  justify-content: flex-end;
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-.miniatures-container {
+.gallery {
+  box-sizing: border-box;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gallery-header {
+  width: 100%;
+}
+
+.gallery-miniatures {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: repeat(2, 19vh);
-  grid-auto-columns: 19vh;
-  gap: 1vh;
-  height: 45vh;
+  grid-template-rows: repeat(1, 100%);
+  grid-auto-columns: 20%;
+  gap: 1%;
+  min-width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
 }
 
-.miniatures-container::-webkit-scrollbar-thumb {
+@media (max-aspect-ratio: 1/2) {
+  .gallery-miniatures {
+    grid-template-rows: repeat(2, 50%);
+    grid-auto-columns: 20%;
+  }
+}
+.gallery-miniatures::-webkit-scrollbar-thumb {
   background-color: #919191;
-  border-radius: 10px;
+  border-radius: 5px;
+  border: 3px solid white;
 }
 
-.miniatures-container::-webkit-scrollbar {
-  height: 1vh;
+.gallery-miniatures::-webkit-scrollbar {
+  height: 10px;
 }/*# sourceMappingURL=Gallery.css.map */

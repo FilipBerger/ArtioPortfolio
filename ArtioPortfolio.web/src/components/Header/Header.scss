@@ -1,72 +1,146 @@
-body {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.5vh;
-}
+$dimensions: (
+   "header-logo-name-width": 170px,
 
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 8vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1vh;
+   "header-logo-width": 40px,
+   "header-logo-height": 40px,
+
+   "header-artist-name-font-size": 18px,
+
+   "header-search-bar-right": 50px,
+   "header-search-bar-height": 34px,
+   "header-search-bar-width": 29px,
+   "header-search-bar-padding-left": 5px,
+   "header-search-bar-border-radius": 15px,
+   "header-search-bar-font-size": 18px,
+
+   "header-search-bar-expanded-width": 260px,
+
+   "header-search-icon-right": 56px,
+   "header-search-icon-top": 10px,
+   "header-search-icon-width": 25px,
+   "header-search-icon-height": 25px,
+
+   "header-menu-width": 40px,
+   "header-menu-height": 40px,
+
+   "header-menu-icon-width": 25px,
+   "header-menu-icon-height": 25px
+);
+
+$medium-scaling-factor: 1.25;
+
+@function get-scaled-dimension($name, $scaling-factor) {
+    @return map-get($dimensions, $name) * $scaling-factor;
+} 
+
+.header {
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1%
 }
 
-.logo {
-    position: fixed;
-    top: 1vh;
-    left: 1vh;
-    width: 6vh;
-    height: 6vh;
+.header-logo-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: map-get($dimensions, "header-logo-name-width");
 }
 
-.artist-name {
-    position: fixed;
-    top: 0;
-    left: 9vh;
+.header-actions {
+    display: flex;
+    justify-content: space-between;
 }
 
-.search-bar {
-    position: fixed;
-    top: 1vh;
-    right: 8vh;
-    height: 5.5vh;
-    margin-left: 19vh;
-    width: 4.5vh;
-    border-radius: 2vh;
+.header-logo {
+    width: map-get($dimensions, "header-logo-width");
+    height: map-get($dimensions, "header-logo-height");
+}
+
+.header-artist-name {
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: map-get($dimensions, "header-artist-name-font-size");
+}
+
+.header-search-bar {
+    position: absolute;
+    right: map-get($dimensions, "header-search-bar-right");
+    height: map-get($dimensions, "header-search-bar-height");
+    width: map-get($dimensions, "header-search-bar-width");
+    padding-left: map-get($dimensions, "header-search-bar-padding-left");
+    border-radius: map-get($dimensions, "header-search-bar-border-radius");
     transition: width 0.3s ease;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.5vh;
-    padding-left: 1vh;
+    font-size: map-get($dimensions, "header-search-bar-font-size");
 }
 
-.search-bar.expanded {
-    width: 38vh;
+.header-search-bar.expanded {
+    width: map-get($dimensions, "header-search-bar-expanded-width");
 }
 
-.search-icon {
-    position: fixed;
-    width: 3.75vh;
-    height: 3.75vh;
-    top: 2vh;
-    right: 9vh;
+.header-search-icon {
+    position: absolute;
+    right: map-get($dimensions, "header-search-icon-right");
+    top: map-get($dimensions, "header-search-icon-top");
+    width: map-get($dimensions, "header-search-icon-width");
+    height: map-get($dimensions, "header-search-icon-height");
     pointer-events: none;
-
 }
 
-.hamburger-menu {
-    width: 6vh;
-    height: 6vh;
-    position: fixed;
-    top: 1vh;
-    right: 1vh;
+.header-menu {
+    width: map-get($dimensions, "header-menu-width");
+    height: map-get($dimensions, "header-menu-height");
 }
 
-.menu-icon {
-    width: 3.75vh;
-    height: 3.75vh;
+.header-menu-icon {
+    width: map-get($dimensions, "header-menu-icon-width");
+    height: map-get($dimensions, "header-menu-icon-height");
+}
+
+// Media query for medium screens (tablets)
+@media (min-width: 768px) {  
+    .header-logo-name {
+        width: get-scaled-dimension("header-logo-name-width", $medium-scaling-factor);
+    }
+    
+    .header-logo {
+        width: get-scaled-dimension("header-logo-width", $medium-scaling-factor);
+        height: get-scaled-dimension("header-logo-height", $medium-scaling-factor);
+    }
+    
+    .header-artist-name {
+        font-size: get-scaled-dimension("header-artist-name-font-size", $medium-scaling-factor);
+    }
+    
+    .header-search-bar {
+        right: get-scaled-dimension("header-search-bar-right", $medium-scaling-factor);
+        height: get-scaled-dimension("header-search-bar-height", $medium-scaling-factor);
+        width: get-scaled-dimension("header-search-bar-width", $medium-scaling-factor);
+        padding-left: get-scaled-dimension("header-search-bar-padding-left", $medium-scaling-factor);
+        border-radius: get-scaled-dimension("header-search-bar-border-radius", $medium-scaling-factor);
+        font-size: get-scaled-dimension("header-search-bar-font-size", $medium-scaling-factor);
+    }
+    
+    .header-search-bar.expanded {
+        width: get-scaled-dimension("header-search-bar-expanded-width", $medium-scaling-factor);
+    }
+
+    .header-search-icon {
+        right: get-scaled-dimension("header-search-icon-right", $medium-scaling-factor);
+        top: get-scaled-dimension("header-search-icon-top", $medium-scaling-factor);
+        width: get-scaled-dimension("header-search-icon-width", $medium-scaling-factor);
+        height: get-scaled-dimension("header-search-icon-height", $medium-scaling-factor);
+    }
+    
+    .header-menu {
+        width: get-scaled-dimension("header-menu-width", $medium-scaling-factor);
+        height: get-scaled-dimension("header-menu-height", $medium-scaling-factor);
+    }
+    
+    .header-menu-icon {
+        width: get-scaled-dimension("header-menu-icon-width", $medium-scaling-factor);
+        height: get-scaled-dimension("header-menu-icon-height", $medium-scaling-factor);
+    }
 }

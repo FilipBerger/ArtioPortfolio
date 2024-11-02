@@ -13,6 +13,6 @@
 }
 
 .focused {
-  filter: brightness(1.2);
+  filter: opacity(0.4);
   transition: filter 0.3s;
 }/*# sourceMappingURL=Miniature.css.map */

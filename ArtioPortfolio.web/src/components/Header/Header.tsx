@@ -22,20 +22,24 @@ const Header: React.FC<HeaderProps> = ({ userData, filterString, setFilterString
     }
 
     return (
-        <div className="header-container">
-            <img className="logo"src={userData.logoBase64}></img>
-            <p className="artist-name">{userData.userName}</p>
-                <div className="search-container">
+        <div className="header">
+            <div className="header-logo-name">
+                <img className="header-logo"src={userData.logoBase64}></img>
+                <p className="header-artist-name">{userData.userName}</p>
+            </div>
+            <div className="header-actions">
+                <div className="header-search">
                     <input
                         type="text"
-                        className={`search-bar ${isExpanded ? 'expanded' : ''}`}
+                        className={`header-search-bar ${isExpanded ? 'expanded' : ''}`}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
                         onChange={handleInputChange}
                     />
-                    <img className="search-icon" src="../../../public/search.svg"></img>
+                    <img className="header-search-icon" src="/search.svg"></img>
                 </div>
-            <button className="hamburger-menu"><img className="menu-icon" src="../../../public/hamburger-menu.svg"></img></button>
+                <button className="header-menu"><img className="header-menu-icon" src="/hamburger-menu.svg"></img></button>
+            </div>
         </div>
     )
 }

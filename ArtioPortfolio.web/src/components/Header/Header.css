@@ -1,71 +1,103 @@
-body {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 2.5vh;
-}
-
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 8vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1vh;
+.header {
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1%;
 }
 
-.logo {
-  position: fixed;
-  top: 1vh;
-  left: 1vh;
-  width: 6vh;
-  height: 6vh;
+.header-logo-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 170px;
 }
 
-.artist-name {
-  position: fixed;
-  top: 0;
-  left: 9vh;
+.header-actions {
+  display: flex;
+  justify-content: space-between;
 }
 
-.search-bar {
-  position: fixed;
-  top: 1vh;
-  right: 8vh;
-  height: 5.5vh;
-  margin-left: 19vh;
-  width: 4.5vh;
-  border-radius: 2vh;
+.header-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.header-artist-name {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 18px;
+}
+
+.header-search-bar {
+  position: absolute;
+  right: 50px;
+  height: 34px;
+  width: 29px;
+  padding-left: 5px;
+  border-radius: 15px;
   transition: width 0.3s ease;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 2.5vh;
-  padding-left: 1vh;
+  font-size: 18px;
 }
 
-.search-bar.expanded {
-  width: 38vh;
+.header-search-bar.expanded {
+  width: 260px;
 }
 
-.search-icon {
-  position: fixed;
-  width: 3.75vh;
-  height: 3.75vh;
-  top: 2vh;
-  right: 9vh;
+.header-search-icon {
+  position: absolute;
+  right: 56px;
+  top: 10px;
+  width: 25px;
+  height: 25px;
   pointer-events: none;
 }
 
-.hamburger-menu {
-  width: 6vh;
-  height: 6vh;
-  position: fixed;
-  top: 1vh;
-  right: 1vh;
+.header-menu {
+  width: 40px;
+  height: 40px;
 }
 
-.menu-icon {
-  width: 3.75vh;
-  height: 3.75vh;
+.header-menu-icon {
+  width: 25px;
+  height: 25px;
+}
+
+@media (min-width: 768px) {
+  .header-logo-name {
+    width: 212.5px;
+  }
+  .header-logo {
+    width: 50px;
+    height: 50px;
+  }
+  .header-artist-name {
+    font-size: 22.5px;
+  }
+  .header-search-bar {
+    right: 62.5px;
+    height: 42.5px;
+    width: 36.25px;
+    padding-left: 6.25px;
+    border-radius: 18.75px;
+    font-size: 22.5px;
+  }
+  .header-search-bar.expanded {
+    width: 325px;
+  }
+  .header-search-icon {
+    right: 70px;
+    top: 12.5px;
+    width: 31.25px;
+    height: 31.25px;
+  }
+  .header-menu {
+    width: 50px;
+    height: 50px;
+  }
+  .header-menu-icon {
+    width: 31.25px;
+    height: 31.25px;
+  }
 }/*# sourceMappingURL=Header.css.map */
