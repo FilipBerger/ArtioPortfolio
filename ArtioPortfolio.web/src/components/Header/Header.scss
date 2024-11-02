@@ -7,8 +7,8 @@ $dimensions: (
    "header-artist-name-font-size": 18px,
 
    "header-search-bar-right": 50px,
-   "header-search-bar-height": 34px,
-   "header-search-bar-width": 29px,
+   "header-search-bar-height": 40px,
+   "header-search-bar-width": 40px,
    "header-search-bar-padding-left": 5px,
    "header-search-bar-border-radius": 15px,
    "header-search-bar-font-size": 18px,
@@ -65,6 +65,7 @@ $medium-scaling-factor: 1.25;
 }
 
 .header-search-bar {
+    box-sizing: border-box;
     position: absolute;
     right: map-get($dimensions, "header-search-bar-right");
     height: map-get($dimensions, "header-search-bar-height");

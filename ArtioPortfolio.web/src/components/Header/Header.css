@@ -30,10 +30,11 @@
 }
 
 .header-search-bar {
+  box-sizing: border-box;
   position: absolute;
   right: 50px;
-  height: 34px;
-  width: 29px;
+  height: 40px;
+  width: 40px;
   padding-left: 5px;
   border-radius: 15px;
   transition: width 0.3s ease;
@@ -77,8 +78,8 @@
   }
   .header-search-bar {
     right: 62.5px;
-    height: 42.5px;
-    width: 36.25px;
+    height: 50px;
+    width: 50px;
     padding-left: 6.25px;
     border-radius: 18.75px;
     font-size: 22.5px;
