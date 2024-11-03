@@ -1,0 +1,101 @@
+/* For portrait mode */
+@media only screen and (orientation: portrait) {
+  /* Styles for portrait orientation */
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    overflow: hidden;
+  }
+}
+.header-stand-in {
+  height: 10vh;
+  background-color: antiquewhite;
+}
+
+.miniatures-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto;
+  grid-auto-columns: 16vh;
+  gap: 1vh;
+  height: 17vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.9); /* Dark background for fullscreen effect */
+  z-index: 1000; /* Ensure it's on top */
+}
+
+.fullscreen img {
+  max-width: 100vw; /* Adapted for the rotated layout */
+  max-height: 100vh;
+}
+
+.fullscreen.active {
+  display: flex; /* Show the div only when `active` is true */
+}
+
+.focus {
+  height: 45vh;
+}
+
+.project-information {
+  font-family: "Bebas Neue", sans-serif;
+  width: 100%;
+  max-height: 25vh;
+  position: relative; /* Keep this for relative positioning */
+}
+.project-information h3 {
+  margin: 1vh;
+}
+
+.description-wrapper {
+  padding: 0% 3% 0% 3%;
+  height: 21vh; /* Set a maximum height for scrolling */
+  overflow-y: scroll; /* Allow vertical scrolling */
+}
+.description-wrapper p {
+  margin-top: 0%;
+}
+
+.tag-reveal-button {
+  cursor: pointer;
+  z-index: 90;
+  position: absolute;
+  right: 0vh;
+  bottom: 0vh;
+}
+
+.tag-container {
+  cursor: default;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1vh;
+  width: 100%; /* Make it full width of the parent */
+}
+
+.tag-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 5px;
+  padding: 1vh;
+  border-radius: 2vh;
+  background-color: rgb(255, 130, 58);
+  color: white;
+}/*# sourceMappingURL=Project.css.map */

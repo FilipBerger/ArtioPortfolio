@@ -12,10 +12,10 @@ export interface HeaderProps {
 
 export interface GalleryProps {
     userData: User
-    projectData: Project[]
+    projectData: ProjectData[]
 }
 
-export interface Project {
+export interface ProjectData {
     projectId: number
     project: string
     description: string
@@ -39,6 +39,7 @@ export interface MiniatureProps {
 export interface FocusProps {
     src: string
     alt: string
+    onClick: Function
 }
 
 export interface FilteredDataType {
