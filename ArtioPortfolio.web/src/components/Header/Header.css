@@ -8,14 +8,16 @@
 
 .header-logo-name {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  width: 170px;
+  flex-grow: 1;
 }
 
 .header-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .header-logo {
@@ -25,14 +27,20 @@
 
 .header-artist-name {
   margin: 0;
+  margin-left: 2vw;
   font-family: "Bebas Neue", sans-serif;
   font-size: 18px;
+  white-space: no-wrap;
+}
+
+.header-search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
 .header-search-bar {
   box-sizing: border-box;
-  position: absolute;
-  right: 50px;
   height: 40px;
   width: 40px;
   padding-left: 5px;
@@ -48,14 +56,14 @@
 
 .header-search-icon {
   position: absolute;
-  right: 56px;
-  top: 10px;
+  right: 6.6666666667px;
   width: 25px;
   height: 25px;
   pointer-events: none;
 }
 
 .header-menu {
+  margin-left: 1vw;
   width: 40px;
   height: 40px;
 }
@@ -65,40 +73,163 @@
   height: 25px;
 }
 
-@media (min-width: 768px) {
-  .header-logo-name {
-    width: 212.5px;
-  }
+@media (min-width: 576px) {
   .header-logo {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
   }
   .header-artist-name {
-    font-size: 22.5px;
+    font-size: 19.8px;
   }
   .header-search-bar {
-    right: 62.5px;
-    height: 50px;
-    width: 50px;
-    padding-left: 6.25px;
-    border-radius: 18.75px;
-    font-size: 22.5px;
+    height: 44px;
+    width: 44px;
+    padding-left: 5.5px;
+    border-radius: 16.5px;
+    font-size: 19.8px;
   }
   .header-search-bar.expanded {
-    width: 325px;
+    width: 286px;
   }
   .header-search-icon {
-    right: 70px;
-    top: 12.5px;
-    width: 31.25px;
-    height: 31.25px;
+    right: 7.3333333333px;
+    width: 27.5px;
+    height: 27.5px;
   }
   .header-menu {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
   }
   .header-menu-icon {
-    width: 31.25px;
-    height: 31.25px;
+    width: 27.5px;
+    height: 27.5px;
+  }
+}
+@media (min-width: 768px) {
+  .header-logo {
+    width: 48px;
+    height: 48px;
+  }
+  .header-artist-name {
+    font-size: 21.6px;
+  }
+  .header-search-bar {
+    height: 48px;
+    width: 48px;
+    padding-left: 6px;
+    border-radius: 18px;
+    font-size: 21.6px;
+  }
+  .header-search-bar.expanded {
+    width: 312px;
+  }
+  .header-search-icon {
+    right: 8px;
+    width: 30px;
+    height: 30px;
+  }
+  .header-menu {
+    width: 48px;
+    height: 48px;
+  }
+  .header-menu-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media (min-width: 992px) {
+  .header-logo {
+    width: 52px;
+    height: 52px;
+  }
+  .header-artist-name {
+    font-size: 23.4px;
+  }
+  .header-search-bar {
+    height: 52px;
+    width: 52px;
+    padding-left: 6.5px;
+    border-radius: 19.5px;
+    font-size: 23.4px;
+  }
+  .header-search-bar.expanded {
+    width: 338px;
+  }
+  .header-search-icon {
+    right: 8.6666666667px;
+    width: 32.5px;
+    height: 32.5px;
+  }
+  .header-menu {
+    width: 52px;
+    height: 52px;
+  }
+  .header-menu-icon {
+    width: 32.5px;
+    height: 32.5px;
+  }
+}
+@media (min-width: 1200px) {
+  .header-logo {
+    width: 56px;
+    height: 56px;
+  }
+  .header-artist-name {
+    font-size: 25.2px;
+  }
+  .header-search-bar {
+    height: 56px;
+    width: 56px;
+    padding-left: 7px;
+    border-radius: 21px;
+    font-size: 25.2px;
+  }
+  .header-search-bar.expanded {
+    width: 364px;
+  }
+  .header-search-icon {
+    right: 9.3333333333px;
+    width: 35px;
+    height: 35px;
+  }
+  .header-menu {
+    width: 56px;
+    height: 56px;
+  }
+  .header-menu-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+@media (min-width: 1440px) {
+  .header-logo {
+    width: 60px;
+    height: 60px;
+  }
+  .header-artist-name {
+    font-size: 27px;
+  }
+  .header-search-bar {
+    height: 60px;
+    width: 60px;
+    padding-left: 7.5px;
+    border-radius: 22.5px;
+    font-size: 27px;
+  }
+  .header-search-bar.expanded {
+    width: 390px;
+  }
+  .header-search-icon {
+    right: 10px;
+    width: 37.5px;
+    height: 37.5px;
+  }
+  .header-menu {
+    width: 60px;
+    height: 60px;
+  }
+  .header-menu-icon {
+    width: 37.5px;
+    height: 37.5px;
   }
 }/*# sourceMappingURL=Header.css.map */
