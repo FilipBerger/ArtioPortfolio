@@ -22,7 +22,8 @@ const Project: React.FC<{ projectData: ProjectData }> = ({ projectData }) => {
     );
 
     const handleClick = () => {
-        setOpenFullscreen(false);
+        console.log("clicked");
+        setOpenFullscreen(!openFullscreen);
         // setOpenTags(!openTags); // Toggle tags
     };
 

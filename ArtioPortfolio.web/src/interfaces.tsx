@@ -39,7 +39,7 @@ export interface MiniatureProps {
 export interface FocusProps {
     src: string
     alt: string
-    onClick: Function
+    onClick: () => void;
 }
 
 export interface FilteredDataType {
