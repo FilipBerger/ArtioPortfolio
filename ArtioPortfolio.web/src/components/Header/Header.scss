@@ -32,12 +32,52 @@ $extra-extra-large-scaling-factor: 1.5;
     @return map-get($dimensions, $name) * $scaling-factor;
 } 
 
+@mixin scaled-dimensions($scaling-factor) {
+    .header-logo {
+        width: get-scaled-dimension("header-logo-width", $scaling-factor);
+        height: get-scaled-dimension("header-logo-height", $scaling-factor);
+    }
+    
+    .header-artist-name {
+        font-size: get-scaled-dimension("header-artist-name-font-size", $scaling-factor);
+    }
+    
+    .header-search-bar {
+        height: get-scaled-dimension("header-search-bar-height", $scaling-factor);
+        width: get-scaled-dimension("header-search-bar-width", $scaling-factor);
+        padding-left: get-scaled-dimension("header-search-bar-padding-left", $scaling-factor);
+        border-radius: get-scaled-dimension("header-search-bar-border-radius", $scaling-factor);
+        font-size: get-scaled-dimension("header-search-bar-font-size", $scaling-factor);
+    }
+    
+    .header-search-bar.expanded {
+        width: get-scaled-dimension("header-search-bar-expanded-width", $scaling-factor);
+    }
+
+    .header-search-icon {
+        right: calc(get-scaled-dimension("header-search-bar-height", $scaling-factor) / 6);
+        width: get-scaled-dimension("header-search-icon-width", $scaling-factor);
+        height: get-scaled-dimension("header-search-icon-height", $scaling-factor);
+    }
+    
+    .header-menu {
+        width: get-scaled-dimension("header-menu-width", $scaling-factor);
+        height: get-scaled-dimension("header-menu-height", $scaling-factor);
+    }
+    
+    .header-menu-icon {
+        width: get-scaled-dimension("header-menu-icon-width", $scaling-factor);
+        height: get-scaled-dimension("header-menu-icon-height", $scaling-factor);
+    }
+}
+
 .header {
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 1%
+    padding: 1%;
+    position: relative;
 }
 
 .header-logo-name {
@@ -45,13 +85,19 @@ $extra-extra-large-scaling-factor: 1.5;
     justify-content: flex-start;
     align-items: center;
     flex-grow: 1;
+    flex-shrink: 0;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .header-actions {
+    position: absolute;
+    right: 1vw;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex-grow: 1
+    flex-grow: 0;
+    z-index: 2;
 }
 
 .header-logo {
@@ -60,8 +106,7 @@ $extra-extra-large-scaling-factor: 1.5;
 }
 
 .header-artist-name {
-    margin: 0;
-    margin-left: 2vw;
+    margin: 0 0 0 2vw;
     font-family: 'Bebas Neue', sans-serif;
     font-size: map-get($dimensions, "header-artist-name-font-size");
     white-space: no-wrap;
@@ -108,201 +153,26 @@ $extra-extra-large-scaling-factor: 1.5;
 }
 
 // Media query for small devices
-@media (min-width: 576px) {  
-    .header-logo {
-        width: get-scaled-dimension("header-logo-width", $small-scaling-factor);
-        height: get-scaled-dimension("header-logo-height", $small-scaling-factor);
-    }
-    
-    .header-artist-name {
-        font-size: get-scaled-dimension("header-artist-name-font-size", $small-scaling-factor);
-    }
-    
-    .header-search-bar {
-        height: get-scaled-dimension("header-search-bar-height", $small-scaling-factor);
-        width: get-scaled-dimension("header-search-bar-width", $small-scaling-factor);
-        padding-left: get-scaled-dimension("header-search-bar-padding-left", $small-scaling-factor);
-        border-radius: get-scaled-dimension("header-search-bar-border-radius", $small-scaling-factor);
-        font-size: get-scaled-dimension("header-search-bar-font-size", $small-scaling-factor);
-    }
-    
-    .header-search-bar.expanded {
-        width: get-scaled-dimension("header-search-bar-expanded-width", $small-scaling-factor);
-    }
-
-    .header-search-icon {
-        right: calc((get-scaled-dimension("header-search-bar-height", $small-scaling-factor) / 6));
-        width: get-scaled-dimension("header-search-icon-width", $small-scaling-factor);
-        height: get-scaled-dimension("header-search-icon-height", $small-scaling-factor);
-    }
-    
-    .header-menu {
-        width: get-scaled-dimension("header-menu-width", $small-scaling-factor);
-        height: get-scaled-dimension("header-menu-height", $small-scaling-factor);
-    }
-    
-    .header-menu-icon {
-        width: get-scaled-dimension("header-menu-icon-width", $small-scaling-factor);
-        height: get-scaled-dimension("header-menu-icon-height", $small-scaling-factor);
-    }
+@media (min-width: 576px) {
+    @include scaled-dimensions($small-scaling-factor);
 }
 
 // Media query for tablets
-@media (min-width: 768px) {  
-    .header-logo {
-        width: get-scaled-dimension("header-logo-width", $medium-scaling-factor);
-        height: get-scaled-dimension("header-logo-height", $medium-scaling-factor);
-    }
-    
-    .header-artist-name {
-        font-size: get-scaled-dimension("header-artist-name-font-size", $medium-scaling-factor);
-    }
-    
-    .header-search-bar {
-        height: get-scaled-dimension("header-search-bar-height", $medium-scaling-factor);
-        width: get-scaled-dimension("header-search-bar-width", $medium-scaling-factor);
-        padding-left: get-scaled-dimension("header-search-bar-padding-left", $medium-scaling-factor);
-        border-radius: get-scaled-dimension("header-search-bar-border-radius", $medium-scaling-factor);
-        font-size: get-scaled-dimension("header-search-bar-font-size", $medium-scaling-factor);
-    }
-    
-    .header-search-bar.expanded {
-        width: get-scaled-dimension("header-search-bar-expanded-width", $medium-scaling-factor);
-    }
-
-    .header-search-icon {
-        right: calc(get-scaled-dimension("header-search-bar-height", $medium-scaling-factor) / 6);
-        width: get-scaled-dimension("header-search-icon-width", $medium-scaling-factor);
-        height: get-scaled-dimension("header-search-icon-height", $medium-scaling-factor);
-    }
-    
-    .header-menu {
-        width: get-scaled-dimension("header-menu-width", $medium-scaling-factor);
-        height: get-scaled-dimension("header-menu-height", $medium-scaling-factor);
-    }
-    
-    .header-menu-icon {
-        width: get-scaled-dimension("header-menu-icon-width", $medium-scaling-factor);
-        height: get-scaled-dimension("header-menu-icon-height", $medium-scaling-factor);
-    }
+@media (min-width: 768px) {
+    @include scaled-dimensions($medium-scaling-factor);
 }
 
 // Media query for larger tablets and small laptops
-@media (min-width: 992px) {  
-    .header-logo {
-        width: get-scaled-dimension("header-logo-width", $large-scaling-factor);
-        height: get-scaled-dimension("header-logo-height", $large-scaling-factor);
-    }
-    
-    .header-artist-name {
-        font-size: get-scaled-dimension("header-artist-name-font-size", $large-scaling-factor);
-    }
-    
-    .header-search-bar {
-        height: get-scaled-dimension("header-search-bar-height", $large-scaling-factor);
-        width: get-scaled-dimension("header-search-bar-width", $large-scaling-factor);
-        padding-left: get-scaled-dimension("header-search-bar-padding-left", $large-scaling-factor);
-        border-radius: get-scaled-dimension("header-search-bar-border-radius", $large-scaling-factor);
-        font-size: get-scaled-dimension("header-search-bar-font-size", $large-scaling-factor);
-    }
-    
-    .header-search-bar.expanded {
-        width: get-scaled-dimension("header-search-bar-expanded-width", $large-scaling-factor);
-    }
-
-    .header-search-icon {
-        right: calc(get-scaled-dimension("header-search-bar-height", $large-scaling-factor) / 6);
-        width: get-scaled-dimension("header-search-icon-width", $large-scaling-factor);
-        height: get-scaled-dimension("header-search-icon-height", $large-scaling-factor);
-    }
-    
-    .header-menu {
-        width: get-scaled-dimension("header-menu-width", $large-scaling-factor);
-        height: get-scaled-dimension("header-menu-height", $large-scaling-factor);
-    }
-    
-    .header-menu-icon {
-        width: get-scaled-dimension("header-menu-icon-width", $large-scaling-factor);
-        height: get-scaled-dimension("header-menu-icon-height", $large-scaling-factor);
-    }
+@media (min-width: 992px) {
+    @include scaled-dimensions($large-scaling-factor);
 }
 
 // Media query for desktops and large laptops
-@media (min-width: 1200px) {  
-    .header-logo {
-        width: get-scaled-dimension("header-logo-width", $extra-large-scaling-factor);
-        height: get-scaled-dimension("header-logo-height", $extra-large-scaling-factor);
-    }
-    
-    .header-artist-name {
-        font-size: get-scaled-dimension("header-artist-name-font-size", $extra-large-scaling-factor);
-    }
-    
-    .header-search-bar {
-        height: get-scaled-dimension("header-search-bar-height", $extra-large-scaling-factor);
-        width: get-scaled-dimension("header-search-bar-width", $extra-large-scaling-factor);
-        padding-left: get-scaled-dimension("header-search-bar-padding-left", $extra-large-scaling-factor);
-        border-radius: get-scaled-dimension("header-search-bar-border-radius", $extra-large-scaling-factor);
-        font-size: get-scaled-dimension("header-search-bar-font-size", $extra-large-scaling-factor);
-    }
-    
-    .header-search-bar.expanded {
-        width: get-scaled-dimension("header-search-bar-expanded-width", $extra-large-scaling-factor);
-    }
-
-    .header-search-icon {
-        right: calc(get-scaled-dimension("header-search-bar-height", $extra-large-scaling-factor) / 6);
-        width: get-scaled-dimension("header-search-icon-width", $extra-large-scaling-factor);
-        height: get-scaled-dimension("header-search-icon-height", $extra-large-scaling-factor);
-    }
-    
-    .header-menu {
-        width: get-scaled-dimension("header-menu-width", $extra-large-scaling-factor);
-        height: get-scaled-dimension("header-menu-height", $extra-large-scaling-factor);
-    }
-    
-    .header-menu-icon {
-        width: get-scaled-dimension("header-menu-icon-width", $extra-large-scaling-factor);
-        height: get-scaled-dimension("header-menu-icon-height", $extra-large-scaling-factor);
-    }
+@media (min-width: 1200px) {
+    @include scaled-dimensions($extra-large-scaling-factor);
 }
 
 // Media query for high-res screens
-@media (min-width: 1440px) {  
-    .header-logo {
-        width: get-scaled-dimension("header-logo-width", $extra-extra-large-scaling-factor);
-        height: get-scaled-dimension("header-logo-height", $extra-extra-large-scaling-factor);
-    }
-    
-    .header-artist-name {
-        font-size: get-scaled-dimension("header-artist-name-font-size", $extra-extra-large-scaling-factor);
-    }
-    
-    .header-search-bar {
-        height: get-scaled-dimension("header-search-bar-height", $extra-extra-large-scaling-factor);
-        width: get-scaled-dimension("header-search-bar-width", $extra-extra-large-scaling-factor);
-        padding-left: get-scaled-dimension("header-search-bar-padding-left", $extra-extra-large-scaling-factor);
-        border-radius: get-scaled-dimension("header-search-bar-border-radius", $extra-extra-large-scaling-factor);
-        font-size: get-scaled-dimension("header-search-bar-font-size", $extra-extra-large-scaling-factor);
-    }
-    
-    .header-search-bar.expanded {
-        width: get-scaled-dimension("header-search-bar-expanded-width", $extra-extra-large-scaling-factor);
-    }
-
-    .header-search-icon {
-        right: calc(get-scaled-dimension("header-search-bar-height", $extra-extra-large-scaling-factor) / 6);
-        width: get-scaled-dimension("header-search-icon-width", $extra-extra-large-scaling-factor);
-        height: get-scaled-dimension("header-search-icon-height", $extra-extra-large-scaling-factor);
-    }
-    
-    .header-menu {
-        width: get-scaled-dimension("header-menu-width", $extra-extra-large-scaling-factor);
-        height: get-scaled-dimension("header-menu-height", $extra-extra-large-scaling-factor);
-    }
-    
-    .header-menu-icon {
-        width: get-scaled-dimension("header-menu-icon-width", $extra-extra-large-scaling-factor);
-        height: get-scaled-dimension("header-menu-icon-height", $extra-extra-large-scaling-factor);
-    }
+@media (min-width: 1440px) {
+    @include scaled-dimensions($extra-extra-large-scaling-factor);
 }

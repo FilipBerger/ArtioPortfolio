@@ -4,6 +4,7 @@
   justify-content: space-between;
   width: 100%;
   padding: 1%;
+  position: relative;
 }
 
 .header-logo-name {
@@ -11,13 +12,19 @@
   justify-content: flex-start;
   align-items: center;
   flex-grow: 1;
+  flex-shrink: 0;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .header-actions {
+  position: absolute;
+  right: 1vw;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  flex-grow: 1;
+  flex-grow: 0;
+  z-index: 2;
 }
 
 .header-logo {
@@ -26,8 +33,7 @@
 }
 
 .header-artist-name {
-  margin: 0;
-  margin-left: 2vw;
+  margin: 0 0 0 2vw;
   font-family: "Bebas Neue", sans-serif;
   font-size: 18px;
   white-space: no-wrap;
