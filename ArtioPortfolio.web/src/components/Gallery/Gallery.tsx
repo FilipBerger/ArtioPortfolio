@@ -29,31 +29,36 @@ const Gallery: React.FC<GalleryProps> = ({ userData, projectData }) => {
     }, [filterString])
 
     return (
-        <div className="gallery-container">
+        <div className="gallery">
+            <div className="gallery-header">
                 <Header 
                     userData={userData}
                     filterString={filterString}
                     setFilterString={setFilterString}
                 />
+            </div>
+
+            <div className="gallery-focus">
                 {filteredResults.length > 0 && (
                     <Focus 
                     src={filteredResults[focusIndex].base64Image}
                     alt={filteredResults[focusIndex].title}
                 />
-                )}
-                <div className="miniatures-container">
-                    {filteredResults.map((data, index )=> (
-                        <Miniature 
-                            key={index}
-                            index={index}
-                            src={data.base64Image} 
-                            alt={`Image title: ${data.title}`}
-                            focusIndex={focusIndex}
-                            setFocusIndex={setFocusIndex}
-                        />
-                    ))}
-                </div>
-                
+            )}
+            </div>
+            
+            <div className="gallery-miniatures">
+                {filteredResults.map((data, index )=> (
+                    <Miniature 
+                        key={index}
+                        index={index}
+                        src={data.base64Image} 
+                        alt={`Image title: ${data.title}`}
+                        focusIndex={focusIndex}
+                        setFocusIndex={setFocusIndex}
+                    />
+                ))}
+            </div>
         </div>
     )
 }

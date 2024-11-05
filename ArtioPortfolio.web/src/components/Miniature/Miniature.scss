@@ -11,5 +11,8 @@
 }
 
 .focused {
-    border: 2px solid red;
+    //border: 2px solid red;
+    //filter: brightness(1.2);
+    filter: opacity(0.4);
+    transition: filter 0.3s;
 }

@@ -8,7 +8,7 @@ const Project: React.FC<{ projectData: ProjectData }> = ({ projectData }) => {
     const [focusIndex, setFocusIndex] = useState(0);
     const [openTags, setOpenTags] = useState(false);
     const [openFullscreen, setOpenFullscreen] = useState(false);
-    const tags = ["ART", "PHOTOSHOP", "SANDWICH", "ARTSY", "NOT AI", "BALLPOINT"];
+    const tags = ["ART", "PHOTOSHOP", "SANDWICH", "ARTSY", "NOT AI", "BALLPOINT", "MARKERS"];
 
     const processedProjectImages = projectData.images.map(image => ({
         base64Image: image.base64Image,
@@ -17,7 +17,7 @@ const Project: React.FC<{ projectData: ProjectData }> = ({ projectData }) => {
 
     const Tag: React.FC<{ tagText: string }> = ({ tagText }) => (
         <div className="tag-box">
-            <h5>{tagText}</h5>
+            <h6>{tagText}</h6>
         </div>
     );
 
