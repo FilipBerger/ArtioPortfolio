@@ -76,7 +76,7 @@ $extra-extra-large-scaling-factor: 1.5;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 1%;
+    padding-bottom: 1%;
     position: relative;
 }
 
@@ -92,7 +92,7 @@ $extra-extra-large-scaling-factor: 1.5;
 
 .header-actions {
     position: absolute;
-    right: 1vw;
+    right: 0vw;
     display: flex;
     justify-content: flex-end;
     align-items: center;

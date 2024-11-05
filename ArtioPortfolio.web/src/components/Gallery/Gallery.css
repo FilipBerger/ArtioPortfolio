@@ -12,16 +12,26 @@ body, html {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  padding: min(16px, 1%);
 }
 
 .gallery-header {
+  width: 100%;
+  margin-bottom: 1%;
+}
+
+.gallery-focus {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
 .gallery-miniatures {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: repeat(1, 100%);
+  grid-template-rows: auto;
   grid-auto-columns: 20%;
   gap: 1%;
   min-width: 100%;
@@ -29,12 +39,6 @@ body, html {
   overflow-y: hidden;
 }
 
-@media (max-aspect-ratio: 1/2) {
-  .gallery-miniatures {
-    grid-template-rows: repeat(2, 50%);
-    grid-auto-columns: 20%;
-  }
-}
 .gallery-miniatures::-webkit-scrollbar-thumb {
   background-color: #919191;
   border-radius: 5px;
