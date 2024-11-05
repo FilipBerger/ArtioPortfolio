@@ -13,5 +13,6 @@
 }
 
 .focused {
-  border: 2px solid red;
+  filter: opacity(0.4);
+  transition: filter 0.3s;
 }/*# sourceMappingURL=Miniature.css.map */

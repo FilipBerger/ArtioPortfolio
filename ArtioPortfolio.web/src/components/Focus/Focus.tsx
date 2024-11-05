@@ -7,8 +7,8 @@ const Focus: React.FC<FocusProps> = ({ src, alt }) => {
         
     }
     return (
-        <div className="focus-container">
-            <img className="focus" src={src} alt={alt} onClick={handleClick}/>
+        <div className="focus">
+            <img src={src} alt={alt} onClick={handleClick}/>
         </div>
     )
 }

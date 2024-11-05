@@ -10,7 +10,7 @@ function App() {
   const typedProjectData: Project[] = projectData as Project[]
 
   return (
-    <div className="app--container">
+    <div className="app-container">
       <Gallery userData={typedUserData} projectData={typedProjectData}/>
     </div>
   )
