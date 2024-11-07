@@ -1,10 +1,11 @@
-import { ProjectData } from "../../interfaces";
+import { ProjectData, ProjectProps, User } from "../../interfaces";
 import Focus from "../Focus/Focus";
 import Miniature from "../Miniature/Miniature";
 import { useState } from "react";
 import "./Project.css";
+import Header from "../Header/Header";
 
-const Project: React.FC<{ projectData: ProjectData }> = ({ projectData }) => {
+const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton }) => {
     const [focusIndex, setFocusIndex] = useState(0);
     const [openTags, setOpenTags] = useState(false);
     const [openFullscreen, setOpenFullscreen] = useState(false);
@@ -28,22 +29,33 @@ const Project: React.FC<{ projectData: ProjectData }> = ({ projectData }) => {
     };
 
     return (
-        <>
+        <div className="project">
+            <div className="project-header">
+                <Header 
+                    userData={userData}
+                    onCloseButton={onCloseButton}
+                    isInProject={true}
+                />
+            </div>
+
             <div className={`fullscreen ${openFullscreen ? 'active' : ''}`} onClick={handleClick}>
                 <img
                     src={processedProjectImages[focusIndex].base64Image}
                     alt={`Image title: ${projectData.project}`}
                 />
             </div>
-            <div className="header-stand-in" />
+
             {processedProjectImages[focusIndex] && (
-                <Focus
-                    src={processedProjectImages[focusIndex].base64Image}
-                    alt={"Image title: " + projectData.project}
-                    onClick={handleClick}
-                />
+                <div className="project-focus">
+                    <Focus
+                        src={processedProjectImages[focusIndex].base64Image}
+                        alt={"Image title: " + projectData.project}
+                        currentIndex={focusIndex}  // Pass focusIndex to Focus for additional control if needed
+                        onFocusClick={() => setOpenFullscreen(!openFullscreen)}  // Toggle fullscreen mode
+                    />
+                </div>
             )}
-            <div className="miniatures-container">
+            <div className="project-miniatures">
                 {processedProjectImages.map((data, index) => (
                     <Miniature
                         key={index}
@@ -57,35 +69,16 @@ const Project: React.FC<{ projectData: ProjectData }> = ({ projectData }) => {
             </div>
             <div className="project-information">
                 <h3>{projectData.project}</h3>
-                <div className="description-wrapper"> {/* New wrapper for scrolling */}
-                    {/* <div className={`tag-container ${openTags ? 'active' : ''}`} onClick={handleClick}>
-                        {tags.map((tag, index) => (
-                            <Tag key={index} tagText={tag} />
-                        ))}
-                    </div> */}
+                <div className="description-wrapper">
                     <p>{projectData.description}</p>
                     <div className={`tag-container ${openTags ? 'active' : ''}`} onClick={handleClick}>
                         {tags.map((tag, index) => (
                             <Tag key={index} tagText={tag} />
                         ))}
                     </div>
-                    {/* {tags.length > 0 && (
-                        <div className="tag-box tag-reveal-button" onClick={handleClick}>
-                            <h4>Q</h4>
-                        </div>
-                    )}                     */}
                 </div>
             </div>
-
-            {/* Tag container positioned at the bottom */}
-            {/* <div className={`tag-container ${openTags ? 'active' : ''}`} onClick={handleClick}>
-                {tags.map((tag, index) => (
-                    <Tag key={index} tagText={tag} />
-                ))}
-            </div> */}
-            
-
-        </>
+        </div>
     );
 };
 

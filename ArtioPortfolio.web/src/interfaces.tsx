@@ -6,13 +6,22 @@ export interface User {
 
 export interface HeaderProps {
     userData: User
-    filterString: string
-    setFilterString: Function
+    filterString?: string
+    setFilterString?: Function
+    onCloseButton?: Function
+    isInProject?: boolean
 }
 
 export interface GalleryProps {
     userData: User
     projectData: ProjectData[]
+    selectProject: Function
+}
+
+export interface ProjectProps {
+    userData: User
+    projectData: ProjectData
+    onCloseButton: Function
 }
 
 export interface ProjectData {
@@ -37,12 +46,15 @@ export interface MiniatureProps {
 }
 
 export interface FocusProps {
-    src: string
-    alt: string
-    onClick: () => void;
+    src: string;
+    alt: string;
+    currentIndex: number;
+    onFocusClick?: () => void;
+    selectProject?: (index: number) => void;  // Update here
 }
 
 export interface FilteredDataType {
     base64Image: string
     title: string
+    originalIndex: number
 }

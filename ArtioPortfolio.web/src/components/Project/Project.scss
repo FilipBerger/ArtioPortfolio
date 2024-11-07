@@ -1,44 +1,85 @@
-/* For portrait mode */
-@media only screen and (orientation: portrait) {
-    /* Styles for portrait orientation */
-    body {
-        width: 100vw;
-        height: 100vh;
-        margin: auto;
-        overflow: hidden;
-    }
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
 }
 
-// @media only screen and (orientation: landscape) {
-//     /* Styles for landscape orientation */
-//     body {
-//         width: 100vh;
-//         height: 100vw;
-//         overflow: hidden;
-//         margin: auto;
-//         transform: rotate(90deg); /* Rotate the layout if needed */
-//         transform-origin: center;
-//     }
-// }
-
-.header-stand-in {
-    height: 10vh;
-    background-color: antiquewhite;
+.project {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    padding: min(16px, 1%);
 }
 
-.miniatures-container {
+.project-header {
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+.project-focus {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 50%; /* Restrict focus area size for responsiveness */
+    flex-shrink: 1; /* Prevents focus from growing excessively */
+}
+
+.project-miniatures {
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: auto;
-    grid-auto-columns: 16vh;
-    gap: 1vh;
-    height: 17vh;
+    grid-auto-columns: minmax(100px, 200px); /* Dynamic range */
+    gap: 1%;
+    width: 100%;
     overflow-x: auto;
-    overflow-y: hidden;
+    flex: 0 0 auto; /* Prevents expansion */
+}
+
+.project-information {
+    font-family: 'Bebas Neue', sans-serif;
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.description-wrapper {
+    padding: 0 3%;
+    overflow-y: auto;
+    max-height: 100%;
+    padding-bottom: 2vh;
+    p {
+        margin-top: 0%;
+    }
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1vh;
+    width: 100%;
+}
+
+.tag-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 0.1rem;
+    padding: 1vh;
+    border-radius: 2vh;
+    background-color: rgb(255, 130, 58);
+    color: white;
 }
 
 .fullscreen {
-    cursor: pointer;
     position: fixed;
     top: 0;
     left: 0;
@@ -47,100 +88,15 @@
     display: none;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.9); /* Dark background for fullscreen effect */
-    z-index: 1000; /* Ensure it's on top */
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
 }
 
 .fullscreen img {
-    max-width: 100vw; /* Adapted for the rotated layout */
-    max-height: 100vh;
-    // object-fit: cover; /* Makes the image cover the rotated area */
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .fullscreen.active {
-    display: flex; /* Show the div only when `active` is true */
-}
-
-.focus-image {
-    cursor: pointer;
-    height: 45vh;
-}
-
-.project-information {
-    font-family: 'Bebas Neue', sans-serif;
-    width: 100%;
-    max-height: 25vh;
-    position: relative; /* Keep this for relative positioning */
-    h3 {
-        margin: 1vh;
-    }
-}
-
-.description-wrapper {
-    padding: 0% 3% 0% 3%;
-    height: 21vh; /* Set a maximum height for scrolling */
-    overflow-y: scroll; /* Allow vertical scrolling */
-    //extend with webkit scrollbar
-    p {
-        margin-top: 0%;
-    }
-}
-
-.tag-reveal-button {
-    cursor: pointer;
-    z-index: 90;
-    position: absolute;
-    right: 0vh;
-    bottom: 0vh;
-}
-
-.tag-container {
-    cursor: default;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 1vh;
-    // padding: 2vh 0;
-    width: 100%; /* Make it full width of the parent */
-}
-
-// .tag-container {
-//     cursor: pointer;
-//     display: flex;
-//     flex-wrap: wrap;
-//     align-items: center;
-//     justify-content: center;
-//     gap: 1vh;
-//     padding: 2vh 0;
-//     width: 100%; /* Make it full width of the parent */
-//     background-color: rgba(255, 255, 255, 0.6);
-//     backdrop-filter: blur(5px);
-//     border: 1px solid white;
-//     z-index: 100;
-//     position: fixed; /* Fixed to the viewport */
-//     left: 0; /* Aligns it to the left */
-//     bottom: 0; /* Fixes it to the bottom of the viewport */
-//     transform: translateY(100%); /* Position off-screen initially */
-//     opacity: 0; /* Invisible by default */
-//     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-// }
-
-// .tag-container.active {
-//     transform: translateY(0); /* Slide into view */
-//     opacity: 1; /* Fade in */
-// }
-
-.tag-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    // min-width: 50px;
-    height: 5px;
-    padding: 1vh;
-    // border: 2px solid black;
-    border-radius: 2vh;
-    background-color: rgb(255, 130, 58);
-    color: white;
 }
