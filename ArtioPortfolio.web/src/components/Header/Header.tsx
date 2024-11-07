@@ -2,49 +2,53 @@ import { useState } from "react";
 import "./Header.css";
 import { HeaderProps } from "../../interfaces";
 
-const Header: React.FC<HeaderProps> = ({ userData, openModal }) => {
+const Header: React.FC<HeaderProps> = ({
+  userData,
+  filterString,
+  setFilterString,
+  openModal,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [searchString, setSearchString] = useState("");
 
   const handleFocus = () => {
     setIsExpanded(true);
   };
 
   const handleBlur = () => {
-    if (searchString === "") {
+    if (filterString === "") {
       setIsExpanded(false);
     }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchString(e.target.value);
+    setFilterString(e.target.value);
   };
 
   return (
-    <div className="header-container">
-      <img
-        className="logo"
-        src={userData.logoBase64}
-        onClick={openModal}
-        alt="logo"
-      ></img>
-      <p className="artist-name">{userData.userName}</p>
-      <div className="search-container">
-        <input
-          type="text"
-          className={`search-bar ${isExpanded ? "expanded" : ""}`}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChange={handleInputChange}
-        />
-        <img className="search-icon" src="../../../public/search.svg"></img>
-      </div>
-      <button className="hamburger-menu">
+    <div className="header">
+      <div className="header-logo-name">
         <img
-          className="menu-icon"
-          src="../../../public/hamburger-menu.svg"
+          className="header-logo"
+          src={userData.logoBase64}
+          onClick={openModal}
         ></img>
-      </button>
+        <p className="header-artist-name">{userData.userName}</p>
+      </div>
+      <div className="header-actions">
+        <div className="header-search">
+          <input
+            type="text"
+            className={`header-search-bar ${isExpanded ? "expanded" : ""}`}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onChange={handleInputChange}
+          />
+          <img className="header-search-icon" src="/search.svg"></img>
+        </div>
+        <button className="header-menu">
+          <img className="header-menu-icon" src="/hamburger-menu.svg"></img>
+        </button>
+      </div>
     </div>
   );
 };

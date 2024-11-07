@@ -1,12 +1,13 @@
 import Gallery from "./components/Gallery/Gallery.tsx";
 import userData from "./mocks/mockUserData.json";
-import { User, WelcomeProps } from "./interfaces.tsx";
+import { Project, User, WelcomeProps } from "./interfaces.tsx";
 import { useState } from "react";
-import Header from "./components/Header/Header.tsx";
 import Welcome from "./components/Welcome/Welcome.tsx";
+import projectData from "./mocks/mockProjects.json";
 
 function App() {
   const typedUserData: User = userData as User;
+  const typedProjectData: Project[] = projectData as Project[];
   const modalUserData: WelcomeProps = {
     profilePicture: userData.logoBase64,
     name: userData.userName,
@@ -23,8 +24,11 @@ function App() {
 
   return (
     <div className="app--container">
-      <Header userData={typedUserData} openModal={toggleModal} />
-      <Gallery userData={typedUserData} />
+      <Gallery
+        userData={typedUserData}
+        projectData={typedProjectData}
+        openModal={toggleModal}
+      />
       {isModalOpen && <Welcome {...modalUserData} />}
     </div>
   );
