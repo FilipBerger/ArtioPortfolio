@@ -5,7 +5,7 @@ import { useState } from "react";
 import "./Project.css";
 import Header from "../Header/Header";
 
-const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton }) => {
+const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton, openModal }) => {
     const [focusIndex, setFocusIndex] = useState(0);
     const [openTags, setOpenTags] = useState(false);
     const [openFullscreen, setOpenFullscreen] = useState(false);
@@ -35,6 +35,7 @@ const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton 
                     userData={userData}
                     onCloseButton={onCloseButton}
                     isInProject={true}
+                    openModal={openModal}
                 />
             </div>
 

@@ -38,6 +38,9 @@ body, html {
   overflow-x: scroll;
   overflow-y: hidden;
 }
+.gallery-miniatures img {
+  cursor: pointer;
+}
 
 .gallery-miniatures::-webkit-scrollbar-thumb {
   background-color: #919191;

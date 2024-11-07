@@ -20,7 +20,6 @@ body, html {
 }
 
 .project-focus {
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,16 +27,22 @@ body, html {
   max-height: 50%; /* Restrict focus area size for responsiveness */
   flex-shrink: 1; /* Prevents focus from growing excessively */
 }
+.project-focus img {
+  cursor: pointer;
+}
 
 .project-miniatures {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: auto;
-  grid-auto-columns: minmax(100px, 200px); /* Dynamic range */
+  grid-auto-columns: minmax(100px, 100px); /* Dynamic range */
   gap: 1%;
   width: 100%;
   overflow-x: auto;
   flex: 0 0 auto; /* Prevents expansion */
+}
+.project-miniatures img {
+  cursor: pointer;
 }
 
 .project-information {
@@ -47,10 +52,10 @@ body, html {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  padding: 0 3% 0 3%;
 }
 
 .description-wrapper {
-  padding: 0 3%;
   overflow-y: auto;
   max-height: 100%;
   padding-bottom: 2vh;

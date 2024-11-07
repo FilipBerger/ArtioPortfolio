@@ -37,6 +37,9 @@ body, html {
     min-width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
+    img {
+        cursor: pointer;
+    }
 }
 
 .gallery-miniatures::-webkit-scrollbar-thumb {
