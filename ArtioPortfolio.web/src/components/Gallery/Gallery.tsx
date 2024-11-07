@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react"
-import Header from "../Header/Header.tsx"
-import { GalleryProps, FilteredDataType } from "../../interfaces.tsx"
-import Miniature from "../Miniature/Miniature.tsx"
-import "./Gallery.css"
-import Focus from "../Focus/Focus.tsx"
+import { useState, useEffect } from "react";
+import Header from "../Header/Header.tsx";
+import { GalleryProps, FilteredDataType } from "../../interfaces.tsx";
+import Miniature from "../Miniature/Miniature.tsx";
+import "./Gallery.css";
+import Focus from "../Focus/Focus.tsx";
 
-const Gallery: React.FC<GalleryProps> = ({ userData, projectData, selectProject }) => {
+const Gallery: React.FC<GalleryProps> = ({ userData, projectData, selectProject, openModal }) => {
     const [focusIndex, setFocusIndex] = useState(0)
     const [filterString, setFilterString] = useState("")
     const [filteredResults, setFilteredResults] = useState<FilteredDataType[]>([])
@@ -32,15 +32,16 @@ const Gallery: React.FC<GalleryProps> = ({ userData, projectData, selectProject 
         }
     }, [filterString])
 
-    return (
-        <div className="gallery">
-            <div className="gallery-header">
-                <Header 
-                    userData={userData}
-                    filterString={filterString}
-                    setFilterString={setFilterString}
-                />
-            </div>
+  return (
+    <div className="gallery">
+      <div className="gallery-header">
+        <Header
+          userData={userData}
+          filterString={filterString}
+          setFilterString={setFilterString}
+          openModal={openModal}
+        />
+      </div>
 
             {/* <div className="gallery-focus" onClick={() => selectProject(focusIndex)}></div> */}
             <div className="gallery-focus">
@@ -70,4 +71,4 @@ const Gallery: React.FC<GalleryProps> = ({ userData, projectData, selectProject 
     )
 }
 
-export default Gallery
+export default Gallery;

@@ -1,0 +1,50 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(241, 241, 241, 0.73);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  z-index: 1000;
+}
+.modal .modal-header {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 0.3rem;
+}
+.modal .modal-header .close-button {
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+}
+.modal .modal-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem 4rem;
+}
+.modal .modal-description img {
+  width: 12rem;
+  height: 15rem;
+}
+.modal .profile-information-social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 3rem;
+}
+.modal .profile-information-social-links a {
+  margin: 0 10px;
+}
+.modal .profile-information-social-links .cv-icon {
+  width: 40px;
+  height: 40px;
+}/*# sourceMappingURL=Welcome.css.map */
