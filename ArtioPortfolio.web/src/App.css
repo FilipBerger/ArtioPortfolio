@@ -1,1 +1,5 @@
-/*# sourceMappingURL=App.css.map */
+.app--container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centers vertically if content height is less than viewport */
+}/*# sourceMappingURL=App.css.map */
