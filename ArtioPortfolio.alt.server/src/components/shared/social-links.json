@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_social_links",
+  "info": {
+    "displayName": "Social Links",
+    "icon": "link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "LinkedIn": {
+      "type": "string",
+      "regex": "^https:\\/\\/(www\\.)?linkedin\\.com\\/[A-Za-z0-9_-]+\\/?$"
+    },
+    "Facebook": {
+      "type": "string",
+      "regex": "^https:\\/\\/(www\\.)?facebook\\.com\\/[A-Za-z0-9.]+\\/?$"
+    },
+    "Instagram": {
+      "type": "string",
+      "regex": "^https:\\/\\/(www\\.)?instagram\\.com\\/[A-Za-z0-9._-]+\\/?$"
+    },
+    "Document": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

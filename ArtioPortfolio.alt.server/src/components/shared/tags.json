@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_tags",
+  "info": {
+    "displayName": "Tags",
+    "icon": "priceTag"
+  },
+  "options": {},
+  "attributes": {
+    "Tag": {
+      "type": "string"
+    }
+  }
+}
