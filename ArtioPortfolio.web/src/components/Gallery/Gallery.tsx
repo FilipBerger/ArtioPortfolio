@@ -20,25 +20,24 @@ const Gallery: React.FC<GalleryProps> = ({
   const processedProjectData = projectData
     .flatMap((project) =>
       project.images
-        .filter((image) => image.imageId === 1)
+        .filter((image) => image.imageId === 0)
         .map((image) => ({
-          base64Image: image.base64Image,
+          base64Image: image.imageURL,
           title: image.title,
         }))
     )
-    .map((image, index) => ({ ...image, originalIndex: index }));
+    .map((image, index) => ({ ...image, originalIndex: index }))
 
   useEffect(() => {
     if (filterString === "") {
-      setFilteredResults(processedProjectData);
-      console.log(processedProjectData);
+      setFilteredResults(processedProjectData)
     } else {
       const filtered = processedProjectData.filter((data) =>
         data.title.toLowerCase().includes(filterString.toLowerCase())
-      );
+      )
       setFilteredResults(filtered);
     }
-  }, [filterString]);
+  }, [filterString])
 
   return (
     <div className="gallery">

@@ -9,10 +9,10 @@ const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton,
     const [focusIndex, setFocusIndex] = useState(0);
     const [openTags, setOpenTags] = useState(false);
     const [openFullscreen, setOpenFullscreen] = useState(false);
-    const tags = ["ART", "PHOTOSHOP", "SANDWICH", "ARTSY", "NOT AI", "BALLPOINT", "MARKERS"];
+    const tags = projectData.tags;
 
     const processedProjectImages = projectData.images.map(image => ({
-        base64Image: image.base64Image,
+        base64Image: image.imageURL,
         title: image.title,
     }));
 
@@ -23,9 +23,7 @@ const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton,
     );
 
     const handleClick = () => {
-        console.log("clicked");
         setOpenFullscreen(!openFullscreen);
-        // setOpenTags(!openTags); // Toggle tags
     };
 
     return (

@@ -12,8 +12,6 @@ const Focus: React.FC<FocusProps> = ({
 }) => {
   // Handle click to include index selection
   const handleClick = () => {
-    console.log("Focus clicked, current index: ", currentIndex);
-
     if (onFocusClick) onFocusClick(); // Handle fullscreen toggle
     if (selectProject) selectProject(currentIndex); // Select project with current index
   };
@@ -22,8 +20,6 @@ const Focus: React.FC<FocusProps> = ({
       handleClick();
     }
   };
-
-  console.log(currentIndex);
 
   return (
     <div className="focus">
