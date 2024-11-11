@@ -42,14 +42,12 @@ const Header: React.FC<HeaderProps> = ({
     onCloseButton(false);
   };
 
-  console.log(isInProject);
-
   return (
     <div className="header">
       <div className="header-logo-name tab">
         <img
           className="header-logo"
-          src={userData.logoBase64}
+          src={userData.logoURL}
           onClick={openModal}
           tabIndex={1}
           onKeyDown={handleKeyEnter}

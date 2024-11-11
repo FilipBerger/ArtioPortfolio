@@ -20,25 +20,24 @@ const Gallery: React.FC<GalleryProps> = ({
   const processedProjectData = projectData
     .flatMap((project) =>
       project.images
-        .filter((image) => image.imageId === 1)
+        .filter((image) => image.imageId === 0)
         .map((image) => ({
-          base64Image: image.base64Image,
+          imageURL: image.imageURL,
           title: image.title,
         }))
     )
-    .map((image, index) => ({ ...image, originalIndex: index }));
+    .map((image, index) => ({ ...image, originalIndex: index }))
 
   useEffect(() => {
     if (filterString === "") {
-      setFilteredResults(processedProjectData);
-      console.log(processedProjectData);
+      setFilteredResults(processedProjectData)
     } else {
       const filtered = processedProjectData.filter((data) =>
         data.title.toLowerCase().includes(filterString.toLowerCase())
-      );
+      )
       setFilteredResults(filtered);
     }
-  }, [filterString]);
+  }, [filterString])
 
   return (
     <div className="gallery">
@@ -55,7 +54,7 @@ const Gallery: React.FC<GalleryProps> = ({
       <div className="gallery-focus">
         {filteredResults.length > 0 && (
           <Focus
-            src={filteredResults[focusIndex].base64Image}
+            src={filteredResults[focusIndex].imageURL}
             alt={filteredResults[focusIndex].title}
             currentIndex={filteredResults[focusIndex].originalIndex}
             onFocusClick={() =>
@@ -70,7 +69,7 @@ const Gallery: React.FC<GalleryProps> = ({
           <Miniature
             key={index}
             index={index}
-            src={data.base64Image}
+            src={data.imageURL}
             alt={`Image title: ${data.title}`}
             focusIndex={focusIndex}
             setFocusIndex={setFocusIndex}
