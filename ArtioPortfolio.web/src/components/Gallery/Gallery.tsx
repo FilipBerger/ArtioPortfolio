@@ -22,7 +22,7 @@ const Gallery: React.FC<GalleryProps> = ({
       project.images
         .filter((image) => image.imageId === 0)
         .map((image) => ({
-          base64Image: image.imageURL,
+          imageURL: image.imageURL,
           title: image.title,
         }))
     )
@@ -54,7 +54,7 @@ const Gallery: React.FC<GalleryProps> = ({
       <div className="gallery-focus">
         {filteredResults.length > 0 && (
           <Focus
-            src={filteredResults[focusIndex].base64Image}
+            src={filteredResults[focusIndex].imageURL}
             alt={filteredResults[focusIndex].title}
             currentIndex={filteredResults[focusIndex].originalIndex}
             onFocusClick={() =>
@@ -69,7 +69,7 @@ const Gallery: React.FC<GalleryProps> = ({
           <Miniature
             key={index}
             index={index}
-            src={data.base64Image}
+            src={data.imageURL}
             alt={`Image title: ${data.title}`}
             focusIndex={focusIndex}
             setFocusIndex={setFocusIndex}

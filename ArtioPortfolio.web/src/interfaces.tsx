@@ -69,7 +69,7 @@ export interface FocusProps {
 }
 
 export interface FilteredDataType {
-    base64Image: string
+    imageURL: string
     title: string
     originalIndex: number
 }

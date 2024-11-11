@@ -12,7 +12,7 @@ const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton,
     const tags = projectData.tags;
 
     const processedProjectImages = projectData.images.map(image => ({
-        base64Image: image.imageURL,
+        imageURL: image.imageURL,
         title: image.title,
     }));
 
@@ -39,7 +39,7 @@ const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton,
 
             <div className={`fullscreen ${openFullscreen ? 'active' : ''}`} onClick={handleClick}>
                 <img
-                    src={processedProjectImages[focusIndex].base64Image}
+                    src={processedProjectImages[focusIndex].imageURL}
                     alt={`Image title: ${projectData.project}`}
                 />
             </div>
@@ -47,7 +47,7 @@ const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton,
             {processedProjectImages[focusIndex] && (
                 <div className="project-focus">
                     <Focus
-                        src={processedProjectImages[focusIndex].base64Image}
+                        src={processedProjectImages[focusIndex].imageURL}
                         alt={"Image title: " + projectData.project}
                         currentIndex={focusIndex}  // Pass focusIndex to Focus for additional control if needed
                         onFocusClick={() => setOpenFullscreen(!openFullscreen)}  // Toggle fullscreen mode
@@ -59,7 +59,7 @@ const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton,
                     <Miniature
                         key={index}
                         index={index}
-                        src={data.base64Image}
+                        src={data.imageURL}
                         alt={"Image title: " + projectData.project}
                         focusIndex={focusIndex}
                         setFocusIndex={setFocusIndex}
