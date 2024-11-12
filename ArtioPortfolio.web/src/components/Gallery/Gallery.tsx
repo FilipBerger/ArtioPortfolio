@@ -24,6 +24,7 @@ const Gallery: React.FC<GalleryProps> = ({
         .map((image) => ({
           imageURL: image.imageURL,
           title: image.title,
+          parentProject: project.project
         }))
     )
     .map((image, index) => ({ ...image, originalIndex: index }))
@@ -55,7 +56,7 @@ const Gallery: React.FC<GalleryProps> = ({
         {filteredResults.length > 0 && (
           <Focus
             src={filteredResults[focusIndex].imageURL}
-            alt={filteredResults[focusIndex].title}
+            alt={`Image ${focusIndex+1} from project titled ${filteredResults[focusIndex].parentProject}`}
             currentIndex={filteredResults[focusIndex].originalIndex}
             onFocusClick={() =>
               selectProject(filteredResults[focusIndex].originalIndex)
@@ -70,7 +71,7 @@ const Gallery: React.FC<GalleryProps> = ({
             key={index}
             index={index}
             src={data.imageURL}
-            alt={`Image title: ${data.title}`}
+            alt={`Miniture display image from project titled ${data.parentProject}`}
             focusIndex={focusIndex}
             setFocusIndex={setFocusIndex}
           />

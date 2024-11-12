@@ -72,6 +72,7 @@ export interface FilteredDataType {
     imageURL: string
     title: string
     originalIndex: number
+    parentProject: string
 }
 
 export interface WelcomeProps {

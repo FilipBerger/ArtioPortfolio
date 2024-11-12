@@ -48,7 +48,7 @@ const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton,
                 <div className="project-focus">
                     <Focus
                         src={processedProjectImages[focusIndex].imageURL}
-                        alt={"Image title: " + projectData.project}
+                        alt={`Image ${focusIndex+1} from project titled ${projectData.project}`}
                         currentIndex={focusIndex}  // Pass focusIndex to Focus for additional control if needed
                         onFocusClick={() => setOpenFullscreen(!openFullscreen)}  // Toggle fullscreen mode
                     />
@@ -60,7 +60,7 @@ const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton,
                         key={index}
                         index={index}
                         src={data.imageURL}
-                        alt={"Image title: " + projectData.project}
+                        alt={`Miniture of image ${index+1} from project titled ${projectData.project}`}
                         focusIndex={focusIndex}
                         setFocusIndex={setFocusIndex}
                     />
@@ -70,7 +70,7 @@ const Project: React.FC<ProjectProps> = ({ userData, projectData, onCloseButton,
                 <h3>{projectData.project}</h3>
                 <div className="description-wrapper">
                     <p>{projectData.description}</p>
-                    <div className={`tag-container ${openTags ? 'active' : ''}`} onClick={handleClick}>
+                    <div className={`tag-container ${openTags ? 'active' : ''}`}>
                         {tags.map((tag, index) => (
                             <Tag key={index} tagText={tag} />
                         ))}
