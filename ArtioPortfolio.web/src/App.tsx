@@ -6,6 +6,7 @@ import "./App.css";
 import Project from "./components/Project/Project.tsx";
 import Welcome from "./components/Welcome/Welcome.tsx";
 import { useState, useEffect } from "react";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const App: React.FC = () => {
 
@@ -39,6 +40,7 @@ const App: React.FC = () => {
 
   const processPortfolioData = async () => {
     const data = await getPortfolioData()
+    console.log(data);
 
     const portfolioData = data.data[0]
 
@@ -66,7 +68,7 @@ const App: React.FC = () => {
       images: project.Images.map((image, index) => ({
         imageId: index,
         title: image.name,
-        imageURL: "http://localhost:1337" + image.formats.large.url
+        imageURL: "http://localhost:1337" + image.url
       }))
     }))
     setProjectData(projectObjects)
@@ -97,27 +99,36 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="app--container">
-      {projectView && (
-        <Project
-          userData={userData}
-          projectData={projectData[projectIndex]}
-          onCloseButton={setProjectView}
-          openModal={toggleModal}
-        />
-      )}
-      {!projectView && (
-        <Gallery
-          key={`${projectData.length}-${userData.userName}`}
-          userData={userData}
-          projectData={projectData}
-          selectProject={selectProject}
-          openModal={toggleModal}
-        />
-      )}
-      {isModalOpen && <Welcome {...modalUserData} />}
-    </div>
+    <HelmetProvider>
+      <div className="app--container">
+        {/* Set site Title and description tag dynamically */}
+        <Helmet>  
+          <title>{userData.userName || "Portfolio"}</title>
+          <meta name="description" content={userData.description || "A creative portfolio showcasing art and projects"} />
+          <meta name="robots" content="index, follow" />
+        </Helmet>
+
+        {projectView && (
+          <Project
+            userData={userData}
+            projectData={projectData[projectIndex]}
+            onCloseButton={setProjectView}
+            openModal={toggleModal}
+          />
+        )}
+        {!projectView && (
+          <Gallery
+            key={`${projectData.length}-${userData.userName}`}
+            userData={userData}
+            projectData={projectData}
+            selectProject={selectProject}
+            openModal={toggleModal}
+          />
+        )}
+        {isModalOpen && <Welcome {...modalUserData} />}
+      </div>
+    </HelmetProvider>
   );
-}
+};
 
 export default App;

@@ -24,7 +24,7 @@ const Miniature: React.FC<MiniatureProps> = ({
   };
 
   return (
-    <div className={className} tabIndex={5} onKeyDown={handleKeyEnter}>
+    <div className={className} tabIndex={0} onKeyDown={handleKeyEnter}>
       <img className="miniature" src={src} alt={alt} onClick={handleClick} />
     </div>
   );

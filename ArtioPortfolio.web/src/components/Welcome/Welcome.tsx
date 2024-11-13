@@ -60,8 +60,10 @@ const Welcome: React.FC<WelcomeProps> = ({
   };
 
   return (
-    <div className="modal" tabIndex={-1} ref={modalRef}>
-      <div className="modal-header">
+    <div className="modal" 
+    tabIndex={-1} 
+    ref={modalRef}>
+      <header className="modal-header">
         <img
           className="close-button"
           src="/close-icon.svg"
@@ -71,10 +73,10 @@ const Welcome: React.FC<WelcomeProps> = ({
           tabIndex={0}
           ref={closeButtonRef}
         />
-      </div>
+      </header>
       <div className="modal-description">
         <img src={profilePicture} alt="Profile picture" />
-        <h2>{name}</h2>
+        <h1>{name}</h1>
         <p>{description}</p>
       </div>
       <div className="profile-information-social-links">
