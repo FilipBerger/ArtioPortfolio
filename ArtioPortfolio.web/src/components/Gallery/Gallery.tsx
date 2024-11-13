@@ -13,9 +13,7 @@ const Gallery: React.FC<GalleryProps> = ({
 }) => {
   const [focusIndex, setFocusIndex] = useState(0);
   const [filterString, setFilterString] = useState("");
-  const [filteredResults, setFilteredResults] = useState<FilteredDataType[]>(
-    []
-  );
+  const [filteredResults, setFilteredResults] = useState<FilteredDataType[]>( [] );
 
   const processedProjectData = projectData
     .flatMap((project) =>
@@ -51,32 +49,34 @@ const Gallery: React.FC<GalleryProps> = ({
         />
       </div>
 
+      <main>
       {/* <div className="gallery-focus" onClick={() => selectProject(focusIndex)}></div> */}
-      <div className="gallery-focus">
-        {filteredResults.length > 0 && (
-          <Focus
-            src={filteredResults[focusIndex].imageURL}
-            alt={`Image ${focusIndex+1} from project titled ${filteredResults[focusIndex].parentProject}`}
-            currentIndex={filteredResults[focusIndex].originalIndex}
-            onFocusClick={() =>
-              selectProject(filteredResults[focusIndex].originalIndex)
-            }
-          />
-        )}
-      </div>
+        <div className="gallery-focus">
+          {filteredResults.length > 0 && (
+            <Focus
+              src={filteredResults[focusIndex].imageURL}
+              alt={`Image ${focusIndex+1} from project titled ${filteredResults[focusIndex].parentProject}`}
+              currentIndex={filteredResults[focusIndex].originalIndex}
+              onFocusClick={() =>
+                selectProject(filteredResults[focusIndex].originalIndex)
+              }
+            />
+          )}
+        </div>
 
-      <div className="gallery-miniatures">
-        {filteredResults.map((data, index) => (
-          <Miniature
-            key={index}
-            index={index}
-            src={data.imageURL}
-            alt={`Miniture display image from project titled ${data.parentProject}`}
-            focusIndex={focusIndex}
-            setFocusIndex={setFocusIndex}
-          />
-        ))}
-      </div>
+        <div className="gallery-miniatures">
+          {filteredResults.map((data, index) => (
+            <Miniature
+              key={index}
+              index={index}
+              src={data.imageURL}
+              alt={`Miniture display image from project titled ${data.parentProject}`}
+              focusIndex={focusIndex}
+              setFocusIndex={setFocusIndex}
+            />
+          ))}
+        </div>
+      </main>
     </div>
   );
 };

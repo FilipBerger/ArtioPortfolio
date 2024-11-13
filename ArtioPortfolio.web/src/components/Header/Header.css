@@ -107,6 +107,7 @@
     height: 44px;
   }
   .header-artist-name {
+    cursor: pointer;
     font-size: 19.8px;
   }
   .header-search-bar {
@@ -139,6 +140,7 @@
     height: 48px;
   }
   .header-artist-name {
+    cursor: pointer;
     font-size: 21.6px;
   }
   .header-search-bar {
@@ -171,6 +173,7 @@
     height: 52px;
   }
   .header-artist-name {
+    cursor: pointer;
     font-size: 23.4px;
   }
   .header-search-bar {
@@ -203,6 +206,7 @@
     height: 56px;
   }
   .header-artist-name {
+    cursor: pointer;
     font-size: 25.2px;
   }
   .header-search-bar {
@@ -235,6 +239,7 @@
     height: 60px;
   }
   .header-artist-name {
+    cursor: pointer;
     font-size: 27px;
   }
   .header-search-bar {

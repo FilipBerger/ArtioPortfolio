@@ -60,7 +60,9 @@ const Welcome: React.FC<WelcomeProps> = ({
   };
 
   return (
-    <div className="modal" tabIndex={-1} ref={modalRef}>
+    <div className="modal" 
+    tabIndex={-1} 
+    ref={modalRef}>
       <header className="modal-header">
         <img
           className="close-button"

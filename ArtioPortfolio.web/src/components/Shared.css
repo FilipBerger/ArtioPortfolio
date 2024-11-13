@@ -6,7 +6,16 @@ html, body {
   width: 100%;
 }
 
-.container, .gallery {
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.container {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -23,7 +32,7 @@ html, body {
   margin-bottom: 1%;
 }
 
-.focus-area, .gallery-focus {
+.focus-area {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +40,7 @@ html, body {
   max-height: 50%;
   flex-shrink: 1;
 }
-.focus-area img, .gallery-focus img {
+.focus-area img {
   cursor: pointer;
 }
 
@@ -55,41 +64,4 @@ html, body {
   background-color: #919191;
   border-radius: 5px;
   border: 3px solid #ffffff;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-}
-
-.gallery-header {
-  width: 100%;
-  margin-bottom: 1%;
-}
-
-.gallery-miniatures {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: auto;
-  grid-auto-columns: minmax(60px, 100px); /* Dynamic range */
-  gap: 1%;
-  max-width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-.gallery-miniatures img {
-  cursor: pointer;
-}
-
-.gallery-miniatures::-webkit-scrollbar-thumb {
-  background-color: #919191;
-  border-radius: 5px;
-  border: 3px solid white;
-}
-
-.gallery-miniatures::-webkit-scrollbar {
-  height: 10px;
-}/*# sourceMappingURL=Gallery.css.map */
+}/*# sourceMappingURL=Shared.css.map */

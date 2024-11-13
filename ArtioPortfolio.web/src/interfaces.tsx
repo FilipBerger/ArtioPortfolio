@@ -38,14 +38,6 @@ export interface ProjectData {
     images: Image[]
 }
 
-// export interface Project {
-//   projectId: number
-//   project: string
-//   description: string
-//   tags: string []
-//   images: Image[]
-// }
-
 export interface Image {
   imageId: number
   title: string

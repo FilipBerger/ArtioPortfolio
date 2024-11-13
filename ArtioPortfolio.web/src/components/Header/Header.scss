@@ -39,6 +39,7 @@ $extra-extra-large-scaling-factor: 1.5;
   }
 
   .header-artist-name {
+    cursor: pointer;
     font-size: get-scaled-dimension(
       "header-artist-name-font-size",
       $scaling-factor
