@@ -50,7 +50,6 @@ const Gallery: React.FC<GalleryProps> = ({
         />
       </div>
 
-      {/* <div className="gallery-focus" onClick={() => selectProject(focusIndex)}></div> */}
       <div className="gallery-focus">
         {filteredResults.length > 0 && (
           <Focus
