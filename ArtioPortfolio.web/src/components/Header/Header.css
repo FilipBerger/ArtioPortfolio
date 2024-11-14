@@ -63,6 +63,25 @@
   width: 260px;
 }
 
+.header-search-bar::-moz-placeholder {
+  color: transparent; /* Make placeholder invisible by default */
+  -moz-transition: color 0.5s ease;
+  transition: color 0.5s ease; /* Smooth transition for the color */
+}
+
+.header-search-bar::placeholder {
+  color: transparent; /* Make placeholder invisible by default */
+  transition: color 0.5s ease; /* Smooth transition for the color */
+}
+
+.header-search-bar:focus::-moz-placeholder {
+  color: #aaa; /* Visible placeholder when the input has focus */
+}
+
+.header-search-bar:focus::placeholder {
+  color: #aaa; /* Visible placeholder when the input has focus */
+}
+
 .header-search-icon {
   position: absolute;
   right: 6.6666666667px;
@@ -88,6 +107,7 @@
     height: 44px;
   }
   .header-artist-name {
+    cursor: pointer;
     font-size: 19.8px;
   }
   .header-search-bar {
@@ -120,6 +140,7 @@
     height: 48px;
   }
   .header-artist-name {
+    cursor: pointer;
     font-size: 21.6px;
   }
   .header-search-bar {
@@ -152,6 +173,7 @@
     height: 52px;
   }
   .header-artist-name {
+    cursor: pointer;
     font-size: 23.4px;
   }
   .header-search-bar {
@@ -184,6 +206,7 @@
     height: 56px;
   }
   .header-artist-name {
+    cursor: pointer;
     font-size: 25.2px;
   }
   .header-search-bar {
@@ -216,6 +239,7 @@
     height: 60px;
   }
   .header-artist-name {
+    cursor: pointer;
     font-size: 27px;
   }
   .header-search-bar {
@@ -241,4 +265,15 @@
     width: 37.5px;
     height: 37.5px;
   }
+}
+.screen-reader-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap; /* added for elements that can break like span */
 }/*# sourceMappingURL=Header.css.map */

@@ -29,7 +29,7 @@ const Focus: React.FC<FocusProps> = ({
         alt={alt}
         onClick={handleClick}
         onKeyDown={handleKeyEnter}
-        tabIndex={4}
+        tabIndex={0}
       />
     </div>
   );
