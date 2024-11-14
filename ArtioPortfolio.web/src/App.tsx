@@ -106,6 +106,9 @@ const App: React.FC = () => {
           <title>{userData.userName || "Portfolio"}</title>
           <meta name="description" content={userData.description || "A creative portfolio showcasing art and projects"} />
           <meta name="robots" content="index, follow" />
+
+          <link rel="icon" type="image/png" href={userData.logoURL} sizes="32x32" />
+          <link rel="apple-touch-icon" href={userData.logoURL} />
         </Helmet>
 
         {projectView && (
