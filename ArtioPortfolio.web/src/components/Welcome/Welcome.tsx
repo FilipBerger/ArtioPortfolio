@@ -12,10 +12,12 @@ const Welcome: React.FC<WelcomeProps> = ({
   cv,
   onClose,
 }) => {
+  // Refs for managing focus and elements
   const modalRef = useRef<HTMLDivElement>(null);
   const firstFocusableRef = useRef<HTMLImageElement>(null);
   const closeButtonRef = useRef<HTMLImageElement>(null);
 
+  // Handle tab key navigation
   useEffect(() => {
     const focusableElements = modalRef.current?.querySelectorAll(
       'a, button, [tabindex]:not([tabindex="-1"])'
@@ -23,10 +25,10 @@ const Welcome: React.FC<WelcomeProps> = ({
 
     const handleTabKey = (e: KeyboardEvent) => {
       if (focusableElements && focusableElements.length > 0) {
-        const firstElement = focusableElements[0] as HTMLElement;
+        const firstElement = focusableElements[0] as HTMLElement; // First focusable element
         const lastElement = focusableElements[
           focusableElements.length - 1
-        ] as HTMLElement;
+        ] as HTMLElement; // Last focusable element
 
         if (e.key === "Tab") {
           if (e.shiftKey) {
@@ -44,14 +46,16 @@ const Welcome: React.FC<WelcomeProps> = ({
       }
     };
 
-    document.addEventListener("keydown", handleTabKey);
-    return () => document.removeEventListener("keydown", handleTabKey);
-  }, []);
+    document.addEventListener("keydown", handleTabKey); // Add event listener for Tab key
+    return () => document.removeEventListener("keydown", handleTabKey); // Cleanup the event listener
+  }, []); // Empty dependency array ensures this runs once when the component mounts
 
+  // Focus on the close button when the modal opens
   useEffect(() => {
     closeButtonRef.current?.focus();
   }, []);
 
+  // Handle enter for closing the modal
   const handleKeyDown = (e: React.KeyboardEvent<HTMLImageElement>) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -60,9 +64,7 @@ const Welcome: React.FC<WelcomeProps> = ({
   };
 
   return (
-    <div className="modal" 
-    tabIndex={-1} 
-    ref={modalRef}>
+    <div className="modal" tabIndex={-1} ref={modalRef}>
       <header className="modal-header">
         <img
           className="close-button"
