@@ -9,4 +9,4 @@
 7. To run the development frontend execute the following CLI-command in the same directory: npm run dev.
 8. To view the webpage open a chromium based browser and enter the following URL: http://localhost:5173/.
 9. a) To access the Strapi backoffice page open a browser and enter the following URL: http://localhost:1337/admin/auth/login.
-   b) Enter the following login credentials Email: admin@admin.com Password: Admin123
+   b) Enter the following login credentials Email: admin@admin.com Password: Admin123 OR Email: user@user.com Password: Admin123
