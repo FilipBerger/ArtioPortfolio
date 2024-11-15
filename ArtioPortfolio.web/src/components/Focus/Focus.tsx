@@ -10,10 +10,10 @@ const Focus: React.FC<FocusProps> = ({
   onFocusClick,
   selectProject,
 }) => {
-  // Handle click to include index selection
-  const handleClick = () => {
-    if (onFocusClick) onFocusClick(); // Handle fullscreen toggle
-    if (selectProject) selectProject(currentIndex); // Select project with current index
+
+  const handleClick = () => {       //Click perfoms different actions based on the parent component of Focus
+    if (onFocusClick) onFocusClick();               // Handle fullscreen toggle (Project)
+    if (selectProject) selectProject(currentIndex); // Select project with current index (Gallery)
   };
   const handleKeyEnter = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
