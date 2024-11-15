@@ -26,7 +26,7 @@ const App: React.FC = () => {
     onClose: () => setIsModalOpen(false),
   };
   
-  const toggleModal = () => setIsModalOpen((prevState) => !prevState);
+  const toggleModal = () => setIsModalOpen((prevState) => !prevState);  
 
   const selectProject = (index: number) => {
     setProjectView(true);
@@ -101,9 +101,8 @@ const App: React.FC = () => {
   }
 
   return (
-    <HelmetProvider>
+    <HelmetProvider> {/* HelmetProvider and Helmet sets Title, Icon, and meta tags dynamically */}
       <div className="app--container">
-        {/* Set site Title and description tag dynamically */}
         <Helmet>  
           <title>{userData.userName || "Portfolio"}</title>
           <meta name="description" content={userData.description || "A creative portfolio showcasing art and projects"} />
