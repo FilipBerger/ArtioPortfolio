@@ -13,13 +13,15 @@ const Miniature: React.FC<MiniatureProps> = ({
       ? "miniature-container focused"
       : "miniature-container";
 
+  // Set the focus when a miniature is clicked
   const handleClick = () => {
     setFocusIndex(index);
   };
 
+  // Set the focus when enter is pressed
   const handleKeyEnter = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
-      handleClick();
+      setFocusIndex(index);
     }
   };
 

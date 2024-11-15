@@ -15,6 +15,7 @@ const Gallery: React.FC<GalleryProps> = ({
   const [filterString, setFilterString] = useState("");
   const [filteredResults, setFilteredResults] = useState<FilteredDataType[]>( [] );
 
+  // Extract the first image and relevant metadata from each project
   const processedProjectData = projectData
     .flatMap((project) =>
       project.images
@@ -27,6 +28,7 @@ const Gallery: React.FC<GalleryProps> = ({
     )
     .map((image, index) => ({ ...image, originalIndex: index }))
 
+  // Filter rendered results based on user input
   useEffect(() => {
     if (filterString === "") {
       setFilteredResults(processedProjectData)
@@ -49,8 +51,6 @@ const Gallery: React.FC<GalleryProps> = ({
         />
       </div>
 
-      <main>
-      {/* <div className="gallery-focus" onClick={() => selectProject(focusIndex)}></div> */}
         <div className="gallery-focus">
           {filteredResults.length > 0 && (
             <Focus
@@ -76,7 +76,6 @@ const Gallery: React.FC<GalleryProps> = ({
             />
           ))}
         </div>
-      </main>
     </div>
   );
 };

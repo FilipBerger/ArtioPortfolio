@@ -12,36 +12,43 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  // Expand the search bar if it is in focus
   const handleFocus = () => {
     setIsExpanded(true);
   };
 
+  // Collapse the search bar if the input is empty and loses focus
   const handleBlur = () => {
     if (filterString === "") {
       setIsExpanded(false);
     }
   };
 
+  // Display modal by pressing enter during keyboard naviation
   const handleKeyEnter = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
       openModal();
     }
   };
 
+  // Close modal by pressing enter during keyboard naviation
   const handleKeyEnterProject = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
       onCloseButton(false);
     }
   };
 
+  // Update the filter string when the search input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterString(e.target.value);
   };
 
+  // Close project view on click
   const handleCloseButtonClick = () => {
     onCloseButton(false);
   };
 
+  // Placeholder function for the hamburger menu click 
   const openHamburger = () => {
     console.log("Hamburger pressed. Not Implemented.");
   };
