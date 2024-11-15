@@ -38,6 +38,7 @@ const App: React.FC = () => {
       processProjectData()
   }, [])
 
+  // Get, process and set portfolio data
   const processPortfolioData = async () => {
     const data = await getPortfolioData()
     console.log(data);
@@ -56,6 +57,7 @@ const App: React.FC = () => {
     setUserData(userObject)
   }
 
+  // Get, process and set project data
   const processProjectData = async () => {
     const data = await getProjectData()
 
