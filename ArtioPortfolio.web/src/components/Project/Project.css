@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.container, .project {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: min(16px, 1%);
+  height: 100vh;
+  width: 70vh;
+  max-width: 100vw;
+}
+
+.header, .project-header {
+  width: 100%;
+  margin-bottom: 1%;
+}
+
+.focus-area, .project .project-focus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: 50%;
+  flex-shrink: 1;
+}
+.focus-area img, .project .project-focus img {
+  cursor: pointer;
+}
+
+.miniatures, .project .project-miniatures {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto;
+  grid-auto-columns: minmax(50px, 100px);
+  gap: 1%;
+  overflow-x: auto;
+  flex: 0 0 auto;
+  width: 100%;
+}
+.miniatures img, .project .project-miniatures img {
+  cursor: pointer;
+}
+.miniatures::-webkit-scrollbar, .project .project-miniatures::-webkit-scrollbar {
+  height: 10px;
+}
+.miniatures::-webkit-scrollbar-thumb, .project .project-miniatures::-webkit-scrollbar-thumb {
+  background-color: #919191;
+  border-radius: 5px;
+  border: 3px solid #ffffff;
+}
+
+.project .project-miniatures {
+  grid-auto-columns: minmax(70px, 100px);
+}
+
+.project-information {
+  box-sizing: border-box;
+  font-family: "Bebas Neue", sans-serif;
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3% 2% 3%;
+}
+.project-information .description-wrapper {
+  overflow-y: auto;
+  max-height: 100%;
+  padding-bottom: 2vh;
+}
+.project-information .description-wrapper p {
+  margin-top: 0%;
+}
+.project-information .tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1vh;
+  width: 100%;
+}
+.project-information .tag-container .tag-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 0.4rem;
+  padding: 1vh;
+  border-radius: 2vh;
+  background-color: rgb(0, 86, 179);
+  color: #ffffff;
+}
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+.fullscreen img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.fullscreen.active {
+  display: flex;
+}/*# sourceMappingURL=Project.css.map */

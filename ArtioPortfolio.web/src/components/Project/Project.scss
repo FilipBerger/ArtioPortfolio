@@ -1,0 +1,81 @@
+@import '../Shared.scss';
+
+.project {
+    @extend .container;
+
+    .project-focus {
+        @extend .focus-area;
+    }
+
+    .project-miniatures {
+        @extend .miniatures;
+        grid-auto-columns: minmax(70px, 100px);
+    }    
+}
+
+.project-header {
+    @extend .header;
+}
+
+.project-information {
+    box-sizing: border-box;
+    font-family: $font-family; 
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0 3% 2% 3%;
+
+    .description-wrapper {
+        overflow-y: auto;
+        max-height: 100%;
+        padding-bottom: 2vh;
+        p {
+            margin-top: 0%;
+        }
+    }
+
+    .tag-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1vh;
+        width: 100%;
+
+        .tag-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            height: 0.4rem;
+            padding: 1vh;
+            border-radius: 2vh;
+            background-color: $tag-color-light;
+            color: $white-color;
+        }          
+    }
+}
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }    
+}
+
+.fullscreen.active {
+    display: flex;
+}

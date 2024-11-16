@@ -1,0 +1,9 @@
+.app--container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers vertically if content height is less than viewport */
+    // overflow: hidden;
+    // height: 100vh; /* Full viewport height */
+    // width: 100vw; /* Full viewport width */
+    // box-sizing: border-box;
+}

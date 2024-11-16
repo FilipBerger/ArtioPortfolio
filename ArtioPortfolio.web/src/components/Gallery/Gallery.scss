@@ -1,0 +1,18 @@
+@import '../Shared.scss';
+
+.gallery {
+    @extend .container;
+
+    .gallery-focus {
+        @extend .focus-area;
+    }
+
+    .gallery-miniatures {
+        @extend .minitures;
+    }
+
+}
+
+.gallery-header {
+    @extend .header;
+}

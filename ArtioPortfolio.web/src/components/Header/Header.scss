@@ -1,0 +1,220 @@
+$dimensions: (
+  "header-logo-width": 40px,
+  "header-logo-height": 40px,
+
+  "header-artist-name-font-size": 18px,
+
+  "header-search-bar-height": 40px,
+  "header-search-bar-width": 40px,
+  "header-search-bar-padding-left": 5px,
+  "header-search-bar-border-radius": 15px,
+  "header-search-bar-font-size": 18px,
+
+  "header-search-bar-expanded-width": 260px,
+
+  "header-search-icon-width": 25px,
+  "header-search-icon-height": 25px,
+
+  "header-menu-width": 40px,
+  "header-menu-height": 40px,
+
+  "header-menu-icon-width": 25px,
+  "header-menu-icon-height": 25px,
+);
+
+$small-scaling-factor: 1.1;
+$medium-scaling-factor: 1.2;
+$large-scaling-factor: 1.3;
+$extra-large-scaling-factor: 1.4;
+$extra-extra-large-scaling-factor: 1.5;
+
+@function get-scaled-dimension($name, $scaling-factor) {
+  @return map-get($dimensions, $name) * $scaling-factor;
+}
+
+@mixin scaled-dimensions($scaling-factor) {
+  .header-logo {
+    width: get-scaled-dimension("header-logo-width", $scaling-factor);
+    height: get-scaled-dimension("header-logo-height", $scaling-factor);
+  }
+
+  .header-artist-name {
+    cursor: pointer;
+    font-size: get-scaled-dimension(
+      "header-artist-name-font-size",
+      $scaling-factor
+    );
+  }
+
+  .header-search-bar {
+    height: get-scaled-dimension("header-search-bar-height", $scaling-factor);
+    width: get-scaled-dimension("header-search-bar-width", $scaling-factor);
+    padding-left: get-scaled-dimension(
+      "header-search-bar-padding-left",
+      $scaling-factor
+    );
+    border-radius: get-scaled-dimension(
+      "header-search-bar-border-radius",
+      $scaling-factor
+    );
+    font-size: get-scaled-dimension(
+      "header-search-bar-font-size",
+      $scaling-factor
+    );
+  }
+
+  .header-search-bar.expanded {
+    width: get-scaled-dimension(
+      "header-search-bar-expanded-width",
+      $scaling-factor
+    );
+  }
+
+  .header-search-icon {
+    right: calc(
+      get-scaled-dimension("header-search-bar-height", $scaling-factor) / 6
+    );
+    width: get-scaled-dimension("header-search-icon-width", $scaling-factor);
+    height: get-scaled-dimension("header-search-icon-height", $scaling-factor);
+  }
+
+  .header-menu {
+    width: get-scaled-dimension("header-menu-width", $scaling-factor);
+    height: get-scaled-dimension("header-menu-height", $scaling-factor);
+  }
+
+  .header-menu-icon {
+    width: get-scaled-dimension("header-menu-icon-width", $scaling-factor);
+    height: get-scaled-dimension("header-menu-icon-height", $scaling-factor);
+  }
+}
+
+.header {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 1%;
+  position: relative;
+  img {
+    cursor: pointer;
+  }
+}
+
+.header-logo-name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.header-actions {
+  position: absolute;
+  right: 0vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 0;
+  z-index: 2;
+}
+
+.header-logo {
+  width: map-get($dimensions, "header-logo-width");
+  height: map-get($dimensions, "header-logo-height");
+}
+
+.header-artist-name {
+  margin: 0 0 0 2vw;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: map-get($dimensions, "header-artist-name-font-size");
+  white-space: no-wrap;
+}
+
+.header-search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-search-bar {
+  box-sizing: border-box;
+  height: map-get($dimensions, "header-search-bar-height");
+  width: map-get($dimensions, "header-search-bar-width");
+  padding-left: map-get($dimensions, "header-search-bar-padding-left");
+  border-radius: map-get($dimensions, "header-search-bar-border-radius");
+  transition: width 0.3s ease;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: map-get($dimensions, "header-search-bar-font-size");
+}
+
+.header-search-bar.expanded {
+  width: map-get($dimensions, "header-search-bar-expanded-width");
+}
+
+.header-search-bar::placeholder {
+  color: transparent; /* Make placeholder invisible by default */
+  transition: color 0.5s ease; /* Smooth transition for the color */
+}
+
+.header-search-bar:focus::placeholder {
+  color: #aaa; /* Visible placeholder when the input has focus */
+}
+
+.header-search-icon {
+  position: absolute;
+  right: calc(map-get($dimensions, "header-search-bar-height") / 6);
+  width: map-get($dimensions, "header-search-icon-width");
+  height: map-get($dimensions, "header-search-icon-height");
+  pointer-events: none;
+}
+
+.header-menu {
+  margin-left: 1vw;
+  width: map-get($dimensions, "header-menu-width");
+  height: map-get($dimensions, "header-menu-height");
+}
+
+.header-menu-icon {
+  width: map-get($dimensions, "header-menu-icon-width");
+  height: map-get($dimensions, "header-menu-icon-height");
+}
+
+// Media query for small devices
+@media (min-width: 576px) {
+  @include scaled-dimensions($small-scaling-factor);
+}
+
+// Media query for tablets
+@media (min-width: 768px) {
+  @include scaled-dimensions($medium-scaling-factor);
+}
+
+// Media query for larger tablets and small laptops
+@media (min-width: 992px) {
+  @include scaled-dimensions($large-scaling-factor);
+}
+
+// Media query for desktops and large laptops
+@media (min-width: 1200px) {
+  @include scaled-dimensions($extra-large-scaling-factor);
+}
+
+// Media query for high-res screens
+@media (min-width: 1440px) {
+  @include scaled-dimensions($extra-extra-large-scaling-factor);
+}
+
+.screen-reader-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap; /* added for elements that can break like span */
+}
